@@ -489,6 +489,55 @@
             opacity: 0.7;
         }
 
+        /* INTERNSHIP */
+        .internship-box {
+            border: 3px solid currentColor;
+            padding: 48px;
+            max-width: 600px;
+            margin-top: 48px;
+            text-align: center;
+        }
+
+        .internship-stat {
+            font-size: clamp(48px, 10vw, 72px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .internship-desc {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+
+        .internship-benefits {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .internship-benefits li {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            padding: 12px 20px;
+            border: 1px solid currentColor;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .internship-box {
+                padding: 32px 24px;
+            }
+            .internship-benefits {
+                flex-direction: column;
+            }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             section {
@@ -698,8 +747,29 @@
         </div>
     </section>
 
+    <!-- TRUE ACADEMY INTERNSHIP -->
+    <section class="section-dark">
+        <p class="caps fade-in">Real Experience</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">TRUE ACADEMY</h2>
+        <p class="subtitle fade-in">Internship with Thailand's leading telecom company</p>
+
+        <div class="internship-box fade-in">
+            <div class="internship-stat">4-5 MONTHS</div>
+            <p class="internship-desc">Real work experience at True Corporation</p>
+
+            <ul class="internship-benefits">
+                <li>Job Certification</li>
+                <li>Earn Credits</li>
+                <li>Real Responsibilities</li>
+                <li>Priority Hiring</li>
+            </ul>
+        </div>
+
+        <p class="subtitle fade-in" style="margin-top: 48px; font-size: 16px; max-width: 700px;">DDI students can intern with True through the "True Academy Project"—learning from industry professionals while earning academic credits. Graduates receive job certification and priority consideration for employment.</p>
+    </section>
+
     <!-- CTA -->
-    <section class="section-dark" style="min-height: auto; padding: 100px 24px;">
+    <section class="section-light" style="min-height: auto; padding: 100px 24px;">
         <p class="caps fade-in">Ready to Start?</p>
         <h2 class="section-title fade-in" style="margin: 24px 0;">JOIN DDI</h2>
         <a href="apply.html" class="btn fade-in">Apply Now</a>

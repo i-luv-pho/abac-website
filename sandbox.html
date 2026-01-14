@@ -429,9 +429,9 @@
         /* MENTORS */
         .mentors-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 16px;
-            max-width: 700px;
+            max-width: 500px;
             margin-top: 48px;
         }
 
@@ -458,6 +458,14 @@
             opacity: 0.6;
             letter-spacing: 0.1em;
             text-transform: uppercase;
+        }
+
+        .mentor-note {
+            margin-top: 32px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            opacity: 0.5;
         }
 
         /* SUCCESS STORY */
@@ -638,7 +646,7 @@
                 display: none;
             }
             .mentors-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -655,7 +663,8 @@
                 max-width: 350px;
             }
             .mentors-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                max-width: 280px;
             }
             .funding-box {
                 padding: 48px 32px;
@@ -795,41 +804,22 @@
         <div class="mentors-grid stagger">
             <div class="mentor-item fade-in">
                 <p class="mentor-name">Dr. Boonkiat Chokwattana</p>
-                <p class="mentor-company">Sahapat PLC</p>
-            </div>
-            <div class="mentor-item fade-in">
-                <p class="mentor-name">Dr. Surat Wongrattanapatsorn</p>
-                <p class="mentor-company">Sahapat PLC</p>
+                <p class="mentor-company">Sahapat Group</p>
             </div>
             <div class="mentor-item fade-in">
                 <p class="mentor-name">Dr. Kittinut Tikawan</p>
                 <p class="mentor-company">True Corporation</p>
             </div>
             <div class="mentor-item fade-in">
-                <p class="mentor-name">Dr. Prapon Rattanachaikanon</p>
-                <p class="mentor-company">True Coffee</p>
-            </div>
-            <div class="mentor-item fade-in">
                 <p class="mentor-name">Dr. Sangsuk Pittayanukul</p>
                 <p class="mentor-company">Smooth-E</p>
-            </div>
-            <div class="mentor-item fade-in">
-                <p class="mentor-name">Vichet Tantivanich</p>
-                <p class="mentor-company">Asia Aviation</p>
-            </div>
-            <div class="mentor-item fade-in">
-                <p class="mentor-name">Pathom Indarodom</p>
-                <p class="mentor-company">Digital Development Foundation</p>
-            </div>
-            <div class="mentor-item fade-in">
-                <p class="mentor-name">Nuttawut Kietchaiyakorn</p>
-                <p class="mentor-company">True Corporation</p>
             </div>
             <div class="mentor-item fade-in">
                 <p class="mentor-name">Vasupon Thankakan</p>
                 <p class="mentor-company">Microsoft Thailand</p>
             </div>
         </div>
+        <p class="mentor-note fade-in">+ 10 more industry mentors from leading Thai companies</p>
     </section>
 
     <!-- SUCCESS STORIES -->
