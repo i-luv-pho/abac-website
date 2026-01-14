@@ -21,6 +21,7 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
 
         body {
@@ -32,6 +33,13 @@
             overflow-x: hidden;
             padding-top: 72px;
             animation: pageEntrance 1.2s ease-out;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
         }
 
         @keyframes pageEntrance {
@@ -179,23 +187,61 @@
             display: none;
             position: fixed;
             top: 0;
-            left: 0;
             right: 0;
             bottom: 0;
+            width: 100%;
+            max-width: 320px;
             background: rgba(0, 0, 0, 0.98);
             z-index: 999;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 32px;
-            opacity: 0;
+            transform: translateX(100%);
             pointer-events: none;
-            transition: opacity 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-mobile.active {
-            opacity: 1;
+            transform: translateX(0);
             pointer-events: auto;
+        }
+
+        .nav-mobile .nav-link {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-mobile.active .nav-link {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nav-mobile .nav-link:nth-child(1) { transition-delay: 0.05s; }
+        .nav-mobile .nav-link:nth-child(2) { transition-delay: 0.1s; }
+        .nav-mobile .nav-link:nth-child(3) { transition-delay: 0.15s; }
+        .nav-mobile .nav-link:nth-child(4) { transition-delay: 0.2s; }
+        .nav-mobile .nav-link:nth-child(5) { transition-delay: 0.25s; }
+
+        /* v14 Touch feedback */
+        .btn:active, .nav-cta:active { transform: scale(0.97) !important; transition: transform 0.1s ease !important; }
+        .faculty-card:active { transform: scale(0.98) !important; transition: transform 0.1s ease !important; }
+        .nav-link:active { opacity: 0.5; }
+
+        /* v14 Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .fade-in { opacity: 1 !important; transform: none !important; }
+        }
+
+        /* v14 Disable tilt on touch */
+        @media (hover: none) and (pointer: coarse) {
+            .tilt-3d { transform: none !important; }
         }
 
         .nav-mobile .nav-link {
