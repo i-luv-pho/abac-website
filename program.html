@@ -578,6 +578,60 @@
             }
         }
 
+        /* FACULTY GRID */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin-top: 48px;
+        }
+
+        .faculty-card {
+            border: 2px solid currentColor;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .faculty-card:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-4px);
+        }
+
+        .faculty-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .faculty-role {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 12px;
+        }
+
+        .faculty-credential {
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .faculty-expertise {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             section {
@@ -602,6 +656,10 @@
             .teaching-number {
                 font-size: 48px;
             }
+            .faculty-grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+            }
         }
     </style>
 </head>
@@ -612,9 +670,8 @@
             <a href="index.html" class="nav-logo">DDI</a>
             <nav class="nav-menu">
                 <a href="program.html" class="nav-link active">Program</a>
-                <a href="global.html" class="nav-link">Go Global</a>
-                <a href="faculty.html" class="nav-link">Faculty</a>
                 <a href="sandbox.html" class="nav-link">Sandbox</a>
+                <a href="global.html" class="nav-link">Global</a>
             </nav>
             <a href="apply.html" class="nav-cta">Apply Now</a>
             <button class="nav-hamburger" aria-label="Menu">
@@ -628,9 +685,8 @@
     <div class="nav-mobile">
         <a href="index.html" class="nav-link">Home</a>
         <a href="program.html" class="nav-link">Program</a>
-        <a href="global.html" class="nav-link">Go Global</a>
-        <a href="faculty.html" class="nav-link">Faculty</a>
         <a href="sandbox.html" class="nav-link">Sandbox</a>
+        <a href="global.html" class="nav-link">Global</a>
         <a href="apply.html" class="nav-cta">Apply Now</a>
     </div>
 
@@ -806,6 +862,46 @@
         </div>
 
         <p class="subtitle fade-in" style="margin-top: 48px; font-size: 16px; max-width: 700px;">DDI students can intern with True through the "True Academy Project"—learning from industry professionals while earning academic credits. Graduates receive job certification and priority consideration for employment.</p>
+    </section>
+
+    <!-- FACULTY -->
+    <section id="faculty" class="section-light">
+        <p class="caps fade-in">Meet Your</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">FACULTY</h2>
+        <p class="subtitle fade-in" style="margin-top: 24px; color: var(--black);">Learn from academics and industry experts who bring real-world experience to the classroom.</p>
+
+        <div class="faculty-grid stagger">
+            <div class="faculty-card fade-in">
+                <p class="faculty-name">Dr. Natamon Phumpradab</p>
+                <p class="faculty-role">Chairperson</p>
+                <p class="faculty-credential">Ph.D. Business Administration (Marketing)<br>Sasin School of Management</p>
+                <p class="faculty-expertise">Marketing Strategy, Consumer Behavior, Digital Marketing</p>
+            </div>
+            <div class="faculty-card fade-in">
+                <p class="faculty-name">Ms. Walee Thongkhum</p>
+                <p class="faculty-role">Deputy Chair</p>
+                <p class="faculty-credential">M.S. Statistics<br>University of Wollongong, Australia</p>
+                <p class="faculty-expertise">Data Analytics, Research Methods, Business Statistics</p>
+            </div>
+            <div class="faculty-card fade-in">
+                <p class="faculty-name">Dr. Kittipong Laosethakul</p>
+                <p class="faculty-role">Instructor</p>
+                <p class="faculty-credential">Ph.D. Management<br>Auburn University, USA</p>
+                <p class="faculty-expertise">Information Systems, Technology Management, Digital Transformation</p>
+            </div>
+            <div class="faculty-card fade-in">
+                <p class="faculty-name">Dr. Songsak Channarukul</p>
+                <p class="faculty-role">Instructor</p>
+                <p class="faculty-credential">Ph.D. Computer Science<br>UW-Milwaukee, USA</p>
+                <p class="faculty-expertise">Software Development, AI/ML, Computer Systems</p>
+            </div>
+            <div class="faculty-card fade-in">
+                <p class="faculty-name">Mr. Sirapob Thangseresuk</p>
+                <p class="faculty-role">Instructor</p>
+                <p class="faculty-credential">M.Arch. Design for Manufacture<br>UCL, United Kingdom</p>
+                <p class="faculty-expertise">Design Thinking, Product Design, Innovation</p>
+            </div>
+        </div>
     </section>
 
     <!-- CTA -->

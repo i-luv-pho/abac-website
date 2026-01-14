@@ -603,6 +603,109 @@
             opacity: 1;
         }
 
+        /* STATS BLOCK */
+        .stats-block {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin: 48px 0;
+        }
+
+        .stat-block {
+            text-align: center;
+            padding: 24px 32px;
+            border: 2px solid currentColor;
+            min-width: 120px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-block:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-4px);
+        }
+
+        .stat-block-number {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1;
+            display: block;
+        }
+
+        .stat-block-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-block {
+                gap: 16px;
+            }
+            .stat-block {
+                padding: 16px 20px;
+                min-width: 100px;
+            }
+            .stat-block-number {
+                font-size: 28px;
+            }
+            .stat-block-label {
+                font-size: 9px;
+            }
+        }
+
+        /* SOCIAL PROOF */
+        .social-proof {
+            text-align: center;
+            padding: 64px 24px;
+            background: var(--white);
+        }
+
+        .social-proof-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: 32px;
+        }
+
+        .company-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px 48px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .company-logo {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .company-logo:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .company-logos {
+                gap: 20px 32px;
+            }
+            .company-logo {
+                font-size: 11px;
+            }
+        }
+
         /* HERO */
         #hero {
             text-align: center;
@@ -624,6 +727,22 @@
             text-transform: uppercase;
             margin-top: 8px;
             opacity: 0.6;
+        }
+
+        .hero-differentiators {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 24px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero-differentiators {
+                font-size: 11px;
+                letter-spacing: 0.1em;
+            }
         }
 
         .hero-cta {
@@ -1863,9 +1982,8 @@
 
             <nav class="nav-menu">
                 <a href="program.html" class="nav-link">Program</a>
-                <a href="global.html" class="nav-link">Go Global</a>
-                <a href="faculty.html" class="nav-link">Faculty</a>
                 <a href="sandbox.html" class="nav-link">Sandbox</a>
+                <a href="global.html" class="nav-link">Global</a>
             </nav>
 
             <a href="apply.html" class="nav-cta">Apply Now</a>
@@ -1882,9 +2000,8 @@
     <div class="nav-mobile">
         <a href="index.html" class="nav-link">Home</a>
         <a href="program.html" class="nav-link">Program</a>
-        <a href="global.html" class="nav-link">Go Global</a>
-        <a href="faculty.html" class="nav-link">Faculty</a>
         <a href="sandbox.html" class="nav-link">Sandbox</a>
+        <a href="global.html" class="nav-link">Global</a>
         <a href="apply.html" class="nav-cta">Apply Now</a>
     </div>
 
@@ -1915,6 +2032,8 @@
             <span class="char">D</span><span class="char">D</span><span class="char">I</span>
         </h1>
 
+        <p class="hero-differentiators fade-in">3-Year BBA • Real Seed Funding • Double Degrees Abroad</p>
+
         <div class="hero-cta fade-in" style="margin-top: 48px;">
             <a href="https://ddi.au.edu" class="btn magnetic-btn pulse-glow">Apply Now</a>
         </div>
@@ -1943,6 +2062,25 @@
             MSME Business School<br>
             Assumption University
         </p>
+
+        <div class="stats-block stagger" style="margin-top: 64px;">
+            <div class="stat-block fade-in">
+                <span class="stat-block-number">3</span>
+                <span class="stat-block-label">Years</span>
+            </div>
+            <div class="stat-block fade-in">
+                <span class="stat-block-number">70K+</span>
+                <span class="stat-block-label">Seed Fund</span>
+            </div>
+            <div class="stat-block fade-in">
+                <span class="stat-block-number">4</span>
+                <span class="stat-block-label">Countries</span>
+            </div>
+            <div class="stat-block fade-in">
+                <span class="stat-block-number">5</span>
+                <span class="stat-block-label">Tracks</span>
+            </div>
+        </div>
     </section>
 
     <!-- PILLARS - Black -->
@@ -1964,6 +2102,19 @@
         </div>
         <a href="program.html" class="btn fade-in" style="margin-top: 48px;">Learn More</a>
     </section>
+
+    <!-- SOCIAL PROOF - White -->
+    <div class="social-proof">
+        <p class="social-proof-title fade-in">Where Our Mentors Come From</p>
+        <div class="company-logos stagger">
+            <span class="company-logo fade-in">Sahapat</span>
+            <span class="company-logo fade-in">True</span>
+            <span class="company-logo fade-in">Smooth-E</span>
+            <span class="company-logo fade-in">SCG</span>
+            <span class="company-logo fade-in">Central</span>
+            <span class="company-logo fade-in">MK Restaurant</span>
+        </div>
+    </div>
 
     <!-- SANDBOX - White -->
     <section id="sandbox" class="section-light">
@@ -2165,7 +2316,7 @@
                 <p class="faculty-expertise">Design Thinking, Product Design, Innovation</p>
             </div>
         </div>
-        <a href="faculty.html" class="btn fade-in" style="margin-top: 48px;">Meet All Faculty</a>
+        <a href="program.html#faculty" class="btn fade-in" style="margin-top: 48px;">Meet All Faculty</a>
     </section>
 
     <!-- INDUSTRY MENTORS - Black -->
