@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Global | DDI - Design & Digital Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            padding-top: 72px;
+            animation: pageEntrance 1.2s ease-out;
+        }
+
+        @keyframes pageEntrance {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* NOISE TEXTURE */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 9998;
+        }
+
+        /* NAVIGATION */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-header.scrolled {
+            padding: 12px 0;
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: white;
+            color: black;
+            padding: 10px 24px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: transparent;
+            color: white;
+            box-shadow: inset 0 0 0 2px white;
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .nav-hamburger span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .nav-hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .nav-mobile {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-mobile.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .nav-mobile .nav-link {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .nav-mobile .nav-cta {
+            margin-top: 24px;
+            padding: 14px 32px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .nav-cta:not(.nav-mobile .nav-cta) { display: none; }
+            .nav-hamburger { display: flex; }
+            .nav-mobile { display: flex; }
+            body { padding-top: 64px; }
+        }
+
+        /* SECTIONS */
+        section {
+            min-height: 100vh;
+            padding: 120px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .section-light {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* TYPOGRAPHY */
+        .page-title {
+            font-size: clamp(48px, 12vw, 120px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 0.95;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 8vw, 72px);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            font-weight: 500;
+            opacity: 0.8;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .caps {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger > *:nth-child(1) { transition-delay: 0s; }
+        .stagger > *:nth-child(2) { transition-delay: 0.1s; }
+        .stagger > *:nth-child(3) { transition-delay: 0.15s; }
+        .stagger > *:nth-child(4) { transition-delay: 0.2s; }
+
+        /* COUNTRY CARDS */
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin-top: 64px;
+        }
+
+        .country-card {
+            border: 2px solid currentColor;
+            padding: 48px 32px;
+            text-align: center;
+            transition: all 0.4s ease;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .country-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        .country-card:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-8px);
+        }
+
+        .country-flag {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .country-name {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 8px;
+        }
+
+        .university-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .degree-type {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border: 1px solid currentColor;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .degree-details {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.8;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .country-card:hover .degree-details {
+            max-height: 200px;
+            margin-top: 16px;
+        }
+
+        /* TIMELINE */
+        .timeline-section {
+            margin-top: 64px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .timeline-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .timeline-block {
+            padding: 24px 32px;
+            border: 2px solid currentColor;
+            text-align: center;
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .timeline-year {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .timeline-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .timeline-arrow {
+            font-size: 32px;
+            opacity: 0.5;
+        }
+
+        /* ALTERNATIVE TRACKS */
+        .alt-tracks {
+            margin-top: 64px;
+            padding: 48px;
+            border: 2px solid currentColor;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .alt-tracks-title {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .track-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .track-option {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            padding: 12px 20px;
+            border: 1px solid currentColor;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .track-option:hover {
+            opacity: 1;
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* STATS */
+        .stats-row {
+            display: flex;
+            gap: 64px;
+            margin-top: 64px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-top: 8px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 18px 56px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 3px solid currentColor;
+            transition: all 0.3s ease;
+        }
+
+        .section-dark .btn {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .section-dark .btn:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .section-light .btn {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .section-light .btn:hover {
+            background: transparent;
+            color: var(--black);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            opacity: 0.5;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 20px;
+            }
+            .country-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            .timeline-row {
+                flex-direction: column;
+            }
+            .timeline-arrow {
+                transform: rotate(90deg);
+            }
+            .stats-row {
+                flex-direction: column;
+                gap: 32px;
+            }
+            .stat-number {
+                font-size: 48px;
+            }
+            .track-options {
+                flex-direction: column;
+            }
+            .alt-tracks {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <header class="nav-header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">DDI</a>
+            <nav class="nav-menu">
+                <a href="program.html" class="nav-link">Program</a>
+                <a href="global.html" class="nav-link active">Go Global</a>
+                <a href="faculty.html" class="nav-link">Faculty</a>
+                <a href="sandbox.html" class="nav-link">Sandbox</a>
+            </nav>
+            <a href="apply.html" class="nav-cta">Apply Now</a>
+            <button class="nav-hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="nav-mobile">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="program.html" class="nav-link">Program</a>
+        <a href="global.html" class="nav-link">Go Global</a>
+        <a href="faculty.html" class="nav-link">Faculty</a>
+        <a href="sandbox.html" class="nav-link">Sandbox</a>
+        <a href="apply.html" class="nav-cta">Apply Now</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="section-dark">
+        <p class="caps fade-in">Your Third Year</p>
+        <h1 class="page-title fade-in" style="margin: 24px 0;">GO GLOBAL</h1>
+        <p class="subtitle fade-in">Study abroad at world-class universities. Graduate with two or three degrees. Start your international career.</p>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section-light">
+        <p class="caps fade-in">How It Works</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">2 + 1</h2>
+        <p class="subtitle fade-in" style="margin-top: 24px; color: var(--black);">Two years at Assumption University. One year abroad. Two degrees.</p>
+
+        <div class="timeline-section fade-in">
+            <div class="timeline-row">
+                <div class="timeline-block">
+                    <div class="timeline-year">2</div>
+                    <div class="timeline-label">Years at AU</div>
+                </div>
+                <div class="timeline-arrow">+</div>
+                <div class="timeline-block">
+                    <div class="timeline-year">1</div>
+                    <div class="timeline-label">Year Abroad</div>
+                </div>
+                <div class="timeline-arrow">=</div>
+                <div class="timeline-block">
+                    <div class="timeline-year">2</div>
+                    <div class="timeline-label">Degrees</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNER UNIVERSITIES -->
+    <section class="section-dark">
+        <p class="caps fade-in">Partner Universities</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">YOUR OPTIONS</h2>
+
+        <div class="country-grid stagger">
+            <div class="country-card fade-in">
+                <div class="country-flag">GB</div>
+                <p class="country-name">United Kingdom</p>
+                <h3 class="university-name">University of Northampton</h3>
+                <span class="degree-type">Double Degree</span>
+                <div class="degree-details">
+                    BA (Hons) Commerce & International Business, Global Business Management, Logistics & Trade Finance, or Tourism Management. 10-30% scholarship available.
+                </div>
+            </div>
+
+            <div class="country-card fade-in">
+                <div class="country-flag">GB</div>
+                <p class="country-name">United Kingdom</p>
+                <h3 class="university-name">Bournemouth University</h3>
+                <span class="degree-type">Double Degree</span>
+                <div class="degree-details">
+                    Business-focused programs at a top UK university known for industry connections and practical learning.
+                </div>
+            </div>
+
+            <div class="country-card fade-in">
+                <div class="country-flag">CH</div>
+                <p class="country-name">Switzerland</p>
+                <h3 class="university-name">Swiss Hotel Management School</h3>
+                <span class="degree-type">Triple Degree</span>
+                <div class="degree-details">
+                    Combine your BBA with hospitality management expertise. Get three internationally recognized qualifications.
+                </div>
+            </div>
+
+            <div class="country-card fade-in">
+                <div class="country-flag">GB</div>
+                <p class="country-name">United Kingdom</p>
+                <h3 class="university-name">University of Essex</h3>
+                <span class="degree-type">BBA + Master's</span>
+                <div class="degree-details">
+                    Complete your BBA at AU (3 years), then earn a Master's degree in just one additional year at Essex.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section-light">
+        <p class="caps fade-in">By the Numbers</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">GLOBAL REACH</h2>
+
+        <div class="stats-row stagger">
+            <div class="stat-item fade-in">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Partner Countries</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Partner Universities</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">30%</div>
+                <div class="stat-label">Scholarship Available</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAY IN THAILAND -->
+    <section class="section-dark">
+        <p class="caps fade-in">Prefer to Stay?</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">THAILAND TRACKS</h2>
+        <p class="subtitle fade-in" style="margin-top: 24px;">Going global isn't for everyone. DDI offers four other pathways for your third year.</p>
+
+        <div class="alt-tracks fade-in">
+            <h3 class="alt-tracks-title">Alternative Year 3 Options</h3>
+            <div class="track-options">
+                <span class="track-option">Academic Track</span>
+                <span class="track-option">Hybrid Track</span>
+                <span class="track-option">Full Internship</span>
+                <span class="track-option">Entrepreneur Track</span>
+            </div>
+        </div>
+
+        <a href="program.html#pathways" class="btn fade-in" style="margin-top: 48px;">Learn About Pathways</a>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-light" style="min-height: auto; padding: 100px 24px;">
+        <p class="caps fade-in">Ready to Go Global?</p>
+        <h2 class="section-title fade-in" style="margin: 24px 0;">START HERE</h2>
+        <a href="apply.html" class="btn fade-in">Apply Now</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">DDI</div>
+        <p class="footer-text">Design & Digital Innovation | Assumption University Thailand</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-50px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Navigation scroll
+        const navHeader = document.querySelector('.nav-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navHeader.classList.add('scrolled');
+            } else {
+                navHeader.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu
+        const navHamburger = document.querySelector('.nav-hamburger');
+        const navMobile = document.querySelector('.nav-mobile');
+
+        navHamburger.addEventListener('click', () => {
+            navHamburger.classList.toggle('active');
+            navMobile.classList.toggle('active');
+            document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+        });
+
+        navMobile.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navHamburger.classList.remove('active');
+                navMobile.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>
