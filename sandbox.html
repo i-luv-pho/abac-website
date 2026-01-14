@@ -429,9 +429,9 @@
         /* MENTORS */
         .mentors-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 16px;
-            max-width: 900px;
+            max-width: 700px;
             margin-top: 48px;
         }
 
@@ -458,6 +458,83 @@
             opacity: 0.6;
             letter-spacing: 0.1em;
             text-transform: uppercase;
+        }
+
+        /* SUCCESS STORY */
+        .success-card {
+            border: 3px solid currentColor;
+            padding: 48px;
+            max-width: 700px;
+            margin-top: 48px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .success-card:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-8px);
+        }
+
+        .success-amount {
+            font-size: clamp(40px, 8vw, 64px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .success-label {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 24px;
+        }
+
+        .success-team {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .success-product {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 16px;
+        }
+
+        .success-desc {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.7;
+        }
+
+        /* COMPETITION PARTNERS */
+        .partners-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            max-width: 900px;
+            margin-top: 48px;
+        }
+
+        .partner-item {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 16px 24px;
+            border: 1px solid currentColor;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .partner-item:hover {
+            opacity: 1;
+            background: var(--white);
+            color: var(--black);
         }
 
         /* WHY SANDBOX */
@@ -736,6 +813,51 @@
                 <p class="mentor-name">Dr. Sangsuk Pittayanukul</p>
                 <p class="mentor-company">Smooth-E</p>
             </div>
+            <div class="mentor-item fade-in">
+                <p class="mentor-name">Vichet Tantivanich</p>
+                <p class="mentor-company">Asia Aviation</p>
+            </div>
+            <div class="mentor-item fade-in">
+                <p class="mentor-name">Pathom Indarodom</p>
+                <p class="mentor-company">Digital Development Foundation</p>
+            </div>
+            <div class="mentor-item fade-in">
+                <p class="mentor-name">Nuttawut Kietchaiyakorn</p>
+                <p class="mentor-company">True Corporation</p>
+            </div>
+            <div class="mentor-item fade-in">
+                <p class="mentor-name">Vasupon Thankakan</p>
+                <p class="mentor-company">Microsoft Thailand</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUCCESS STORIES -->
+    <section class="section-dark">
+        <p class="caps fade-in">Real Results</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">SUCCESS STORIES</h2>
+
+        <div class="success-card fade-in">
+            <div class="success-amount">฿3.5M</div>
+            <div class="success-label">Funding Secured</div>
+            <h3 class="success-team">Team Zeri</h3>
+            <p class="success-product">Zeri Well Plus</p>
+            <p class="success-desc">DDI students developed their startup through the Sandbox program and secured 3.5 million THB in funding to scale their business.</p>
+        </div>
+    </section>
+
+    <!-- COMPETITION PARTNERS -->
+    <section class="section-light">
+        <p class="caps fade-in">Compete & Win</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">COMPETITION PARTNERS</h2>
+
+        <div class="partners-grid stagger">
+            <div class="partner-item fade-in">Kasikorn Bank</div>
+            <div class="partner-item fade-in">Stanford Thailand Research</div>
+            <div class="partner-item fade-in">Thai Health Promotion</div>
+            <div class="partner-item fade-in">HealthTechX</div>
+            <div class="partner-item fade-in">Tourism Authority Thailand</div>
+            <div class="partner-item fade-in">Digital Economy Promotion Agency</div>
         </div>
     </section>
 
