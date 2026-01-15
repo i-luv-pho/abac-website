@@ -26,11 +26,17 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --black: #000000;
             --white: #ffffff;
+            /* HUD ACCENT COLORS */
+            --hud-blue: #0096ff;
+            --hud-blue-dim: rgba(0, 150, 255, 0.3);
+            --hud-blue-glow: rgba(0, 150, 255, 0.15);
+            --hud-cyan: #00d4ff;
+            --grid-line: rgba(0, 150, 255, 0.05);
         }
 
         * {
@@ -38,6 +44,171 @@
             margin: 0;
             padding: 0;
         }
+
+        /* ============================================
+           PALANTIR HUD DESIGN SYSTEM
+           ============================================ */
+
+        /* HUD FRAME - Corner brackets on sections */
+        .hud-frame {
+            position: relative;
+        }
+        .hud-frame::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border-top: 2px solid var(--hud-blue);
+            border-left: 2px solid var(--hud-blue);
+            pointer-events: none;
+            z-index: 10;
+        }
+        .hud-frame::after {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-bottom: 2px solid var(--hud-blue);
+            border-right: 2px solid var(--hud-blue);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* GRID BACKGROUND - Subtle tech grid overlay */
+        .grid-bg {
+            position: relative;
+        }
+        .grid-bg .grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* GLOW EFFECTS */
+        .glow-border {
+            box-shadow:
+                0 0 0 1px var(--hud-blue-dim),
+                0 0 30px var(--hud-blue-glow),
+                inset 0 0 20px var(--hud-blue-glow);
+        }
+        .glow-text {
+            text-shadow: 0 0 40px var(--hud-blue), 0 0 80px var(--hud-blue-glow);
+        }
+        .glow-line {
+            box-shadow: 0 0 10px var(--hud-blue), 0 0 20px var(--hud-blue-glow);
+        }
+
+        /* MONOSPACE DATA TYPOGRAPHY */
+        .data-mono {
+            font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+            letter-spacing: 0.12em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* SCANLINE OVERLAY - Subtle CRT effect */
+        .scanlines {
+            position: relative;
+        }
+        .scanlines .scanline-overlay {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 2px,
+                rgba(0, 0, 0, 0.015) 2px,
+                rgba(0, 0, 0, 0.015) 4px
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* SECTION NUMBER INDICATOR */
+        .section-number {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            opacity: 0.4;
+            z-index: 10;
+        }
+        .section-dark .section-number {
+            color: var(--white);
+        }
+
+        /* DATA CARD COMPONENT */
+        .data-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--hud-blue-dim);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .data-card:hover {
+            border-color: var(--hud-blue);
+            box-shadow: 0 0 30px var(--hud-blue-glow);
+        }
+        .data-card .card-id {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            opacity: 0.5;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* HORIZONTAL LINE WITH GLOW */
+        .hud-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--hud-blue), transparent);
+            margin: 40px 0;
+            opacity: 0.5;
+        }
+
+        /* ANIMATED GRID MESH BACKGROUND (CSS only) */
+        @keyframes grid-pulse {
+            0%, 100% { opacity: 0.03; }
+            50% { opacity: 0.06; }
+        }
+        .grid-bg .grid-overlay {
+            animation: grid-pulse 8s ease-in-out infinite;
+        }
+
+        /* RESPONSIVE HUD ADJUSTMENTS */
+        @media (max-width: 768px) {
+            .hud-frame::before,
+            .hud-frame::after {
+                width: 30px;
+                height: 30px;
+                top: 20px;
+                left: 20px;
+            }
+            .hud-frame::after {
+                top: auto;
+                left: auto;
+                bottom: 20px;
+                right: 20px;
+            }
+            .section-number {
+                top: 20px;
+                right: 20px;
+                font-size: 10px;
+            }
+        }
+
+        /* ============================================
+           END HUD DESIGN SYSTEM
+           ============================================ */
 
         html {
             scroll-behavior: smooth;
@@ -4293,8 +4464,12 @@
         <a href="apply.html" class="nav-cta">Apply Now</a>
     </div>
 
-    <!-- HERO - Black -->
-    <section id="hero" class="section-dark">
+    <!-- HERO - Black with HUD -->
+    <section id="hero" class="section-dark hud-frame grid-bg scanlines">
+        <div class="grid-overlay"></div>
+        <div class="scanline-overlay"></div>
+        <span class="section-number">01 // 08</span>
+
         <div class="particles">
             <div class="particle"></div>
             <div class="particle"></div>
@@ -4307,23 +4482,23 @@
             <div class="particle"></div>
         </div>
 
-        <p class="subtitle fade-in" style="margin-bottom: 8px;">Design & Digital Innovation</p>
+        <p class="subtitle data-mono fade-in" style="margin-bottom: 8px;">DESIGN & DIGITAL INNOVATION</p>
         <p class="school-name fade-in">Assumption University Thailand</p>
 
-        <div class="deco-line fade-in">
+        <div class="deco-line fade-in glow-line">
             <span class="circle"></span>
             <span class="deco-line-inner"></span>
             <span class="circle"></span>
         </div>
 
-        <h1 class="hero-title split-text">
+        <h1 class="hero-title split-text glow-text">
             <span class="char">D</span><span class="char">D</span><span class="char">I</span>
         </h1>
 
-        <p class="hero-differentiators fade-in">3-Year BBA • Real Seed Funding • Double Degrees Abroad</p>
+        <p class="hero-differentiators data-mono fade-in">3-YEAR BBA // REAL FUNDING // DOUBLE DEGREES</p>
 
         <div class="hero-cta fade-in" style="margin-top: 48px;">
-            <a href="https://ddi.au.edu" class="btn magnetic-btn pulse-glow">Apply Now</a>
+            <a href="https://ddi.au.edu" class="btn magnetic-btn glow-border">Apply Now</a>
         </div>
 
         <div class="scroll-line"></div>
@@ -4553,23 +4728,30 @@
         </div>
     </section>
 
-    <!-- PILLARS - Black -->
-    <section id="pillars" class="section-dark">
+    <!-- PILLARS - Black with HUD -->
+    <section id="pillars" class="section-dark hud-frame grid-bg">
+        <div class="grid-overlay"></div>
+        <span class="section-number">03 // 08</span>
+
         <div class="grid-2x2 stagger">
-            <a href="pillars/business.html" class="pillar fade-in tilt-3d shimmer">
+            <a href="pillars/business.html" class="pillar fade-in tilt-3d data-card">
+                <span class="card-id">01</span>
                 <span class="pillar-text">Business</span>
             </a>
-            <a href="pillars/technology.html" class="pillar fade-in tilt-3d shimmer">
+            <a href="pillars/technology.html" class="pillar fade-in tilt-3d data-card">
+                <span class="card-id">02</span>
                 <span class="pillar-text">Technology & Innovation</span>
             </a>
-            <a href="pillars/design.html" class="pillar fade-in tilt-3d shimmer">
+            <a href="pillars/design.html" class="pillar fade-in tilt-3d data-card">
+                <span class="card-id">03</span>
                 <span class="pillar-text">Design Tactics</span>
             </a>
-            <a href="pillars/individual.html" class="pillar fade-in tilt-3d shimmer">
+            <a href="pillars/individual.html" class="pillar fade-in tilt-3d data-card">
+                <span class="card-id">04</span>
                 <span class="pillar-text">Individual Development</span>
             </a>
         </div>
-        <a href="program.html" class="btn fade-in" style="margin-top: 48px;">Learn More</a>
+        <a href="program.html" class="btn glow-border fade-in" style="margin-top: 48px;">Learn More</a>
     </section>
 
     <!-- SANDBOX - White -->
@@ -4640,11 +4822,14 @@
         <a href="sandbox.html" class="btn fade-in" style="margin-top: 32px;">Explore Sandbox</a>
     </section>
 
-    <!-- GO GLOBAL - Black (NEW!) -->
-    <section id="global" class="section-dark">
-        <h2 class="section-title fade-in" style="margin: 16px 0;">GO GLOBAL</h2>
-        <p class="subtitle fade-in">Your Year. Your Choice.</p>
-        <div class="line line-grow" style="margin: 32px 0;"></div>
+    <!-- GO GLOBAL - Black with HUD -->
+    <section id="global" class="section-dark hud-frame grid-bg">
+        <div class="grid-overlay"></div>
+        <span class="section-number">05 // 08</span>
+
+        <h2 class="section-title glow-text fade-in" style="margin: 16px 0;">GO GLOBAL</h2>
+        <p class="subtitle data-mono fade-in">YOUR YEAR // YOUR CHOICE</p>
+        <div class="hud-line" style="margin: 32px auto; max-width: 200px;"></div>
 
         <div class="country-grid stagger">
             <a href="schools/northampton.html" class="country-card fade-in tilt-3d shimmer">
@@ -4733,10 +4918,13 @@
         <a href="global.html" class="btn fade-in" style="margin-top: 48px;">Explore Options</a>
     </section>
 
-    <!-- INDUSTRY MENTORS - Black -->
-    <section id="mentors" class="section-dark">
-        <h2 class="heading-lg fade-in">Industry Leaders</h2>
-        <div class="line line-grow" style="margin-top: 32px;"></div>
+    <!-- INDUSTRY MENTORS - Black with HUD -->
+    <section id="mentors" class="section-dark hud-frame grid-bg">
+        <div class="grid-overlay"></div>
+        <span class="section-number">06 // 08</span>
+
+        <h2 class="heading-lg glow-text fade-in">Industry Leaders</h2>
+        <div class="hud-line" style="margin-top: 32px; max-width: 150px; margin-left: auto; margin-right: auto;"></div>
 
         <div class="mentor-grid stagger">
             <a href="mentors/boonkiat.html" class="mentor-item fade-in">
@@ -4845,10 +5033,12 @@
         </div>
     </section>
 
-    <!-- VIDEO -->
-    <section class="section-dark" style="min-height: auto; padding: 100px 24px;">
-        <h2 class="section-title fade-in" style="margin: 16px 0 48px;">SEE IT IN ACTION</h2>
-        <div class="fade-in" style="max-width: 800px; width: 100%;">
+    <!-- VIDEO with HUD -->
+    <section class="section-dark hud-frame" style="min-height: auto; padding: 100px 24px;">
+        <span class="section-number">07 // 08</span>
+
+        <h2 class="section-title glow-text fade-in" style="margin: 16px 0 48px;">SEE IT IN ACTION</h2>
+        <div class="fade-in glow-border" style="max-width: 800px; width: 100%;">
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
                 <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/KQsLQHBUOjU" title="DDI Open House" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
@@ -4900,6 +5090,11 @@
         </p>
         <p class="footer-year fade-in">2026</p>
     </footer>
+
+    <!-- GSAP + Lenis for smooth scroll and animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
     <!-- JavaScript -->
     <script>
@@ -5194,6 +5389,102 @@
                 icon.textContent = content.classList.contains('open') ? '−' : '+';
             });
         });
+
+        // ============================================
+        // PALANTIR-STYLE SMOOTH SCROLL & ANIMATIONS
+        // ============================================
+
+        // 1. LENIS SMOOTH SCROLL (buttery smooth)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            smoothTouch: false,
+            touchMultiplier: 2
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Sync GSAP ScrollTrigger with Lenis
+        gsap.registerPlugin(ScrollTrigger);
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        // 2. SAFE PARALLAX - Hero title scales down on scroll (gsap.to ONLY)
+        gsap.to('.hero-title', {
+            scale: 0.85,
+            opacity: 0.4,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '#hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+
+        // 3. SAFE PARALLAX - Section numbers fade out
+        gsap.utils.toArray('.section-number').forEach(num => {
+            gsap.to(num, {
+                opacity: 0,
+                y: -20,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: num.closest('section'),
+                    start: 'top top',
+                    end: '30% top',
+                    scrub: true
+                }
+            });
+        });
+
+        // 4. SAFE PARALLAX - Grid overlays intensify on scroll
+        gsap.utils.toArray('.grid-overlay').forEach(grid => {
+            gsap.to(grid, {
+                opacity: 0.08,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: grid.closest('section'),
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+        });
+
+        // 5. MAGNETIC BUTTON EFFECT
+        document.querySelectorAll('.magnetic-btn, .glow-border').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(btn, {
+                    x: x * 0.2,
+                    y: y * 0.2,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            });
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.5,
+                    ease: 'elastic.out(1, 0.5)'
+                });
+            });
+        });
+
+        console.log('Palantir HUD Design System loaded');
 
     </script>
 
