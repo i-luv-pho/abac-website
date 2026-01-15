@@ -2310,6 +2310,133 @@
                 font-size: 13px;
             }
         }
+
+        /* WAITLIST MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 48px;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--black);
+            line-height: 1;
+            padding: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-close:hover {
+            opacity: 0.5;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            opacity: 0.6;
+            margin-bottom: 32px;
+        }
+
+        .waitlist-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .waitlist-input {
+            padding: 16px;
+            font-size: 16px;
+            font-family: inherit;
+            border: 2px solid var(--black);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .waitlist-input:focus {
+            outline: none;
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .waitlist-input::placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        .waitlist-submit {
+            padding: 18px 32px;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: inherit;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .waitlist-submit:hover {
+            background: transparent;
+            color: var(--black);
+        }
+
+        .waitlist-note {
+            font-size: 11px;
+            opacity: 0.5;
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 32px 24px;
+            }
+            .modal-title {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2751,7 +2878,7 @@
         <div class="line line-grow" style="margin-bottom: 48px; background: var(--black);"></div>
         <div class="cta-buttons fade-in" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
             <a href="https://ddi.au.edu" class="btn magnetic-btn">Apply Now</a>
-            <a href="#" class="btn magnetic-btn" style="background: transparent; color: var(--black); border-color: var(--black);" onclick="alert('Google Form link coming soon!'); return false;">Join Party Waitlist</a>
+            <a href="#" class="btn magnetic-btn" style="background: transparent; color: var(--black); border-color: var(--black);" onclick="openWaitlistModal(); return false;">Join Waitlist</a>
         </div>
         <div class="contact-section fade-in">
             <p class="contact-label" style="color: var(--black);">Contact</p>
@@ -2761,6 +2888,23 @@
             </p>
         </div>
     </section>
+
+    <!-- WAITLIST MODAL -->
+    <div class="modal-overlay" id="waitlistModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeWaitlistModal()">&times;</button>
+            <h2 class="modal-title">Join the Waitlist</h2>
+            <p class="modal-subtitle">Be the first to know about DDI events and updates.</p>
+            <form class="waitlist-form" action="https://formspree.io/f/pho2610ana@proton.me" method="POST">
+                <input type="text" name="name" class="waitlist-input" placeholder="Your Name" required>
+                <input type="email" name="email" class="waitlist-input" placeholder="Email Address" required>
+                <input type="tel" name="phone" class="waitlist-input" placeholder="Phone (optional)">
+                <input type="hidden" name="_subject" value="New DDI Waitlist Signup">
+                <button type="submit" class="waitlist-submit">Join Waitlist</button>
+            </form>
+            <p class="waitlist-note">We'll never share your information with anyone.</p>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="section-dark">
@@ -3015,6 +3159,37 @@
                 });
             });
         }
+
+        // WAITLIST MODAL
+        const waitlistModal = document.getElementById('waitlistModal');
+
+        function openWaitlistModal() {
+            waitlistModal.style.display = 'flex';
+            setTimeout(() => waitlistModal.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWaitlistModal() {
+            waitlistModal.classList.remove('active');
+            setTimeout(() => {
+                waitlistModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Close modal on overlay click
+        waitlistModal.addEventListener('click', (e) => {
+            if (e.target === waitlistModal) {
+                closeWaitlistModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && waitlistModal.classList.contains('active')) {
+                closeWaitlistModal();
+            }
+        });
 
     </script>
 
