@@ -1852,6 +1852,111 @@
             }
         }
 
+        /* ============================================
+           MOBILE ACCORDION SYSTEM
+           ============================================ */
+        .mobile-accordion-container {
+            display: none;
+            background: var(--white);
+        }
+
+        .accordion-item {
+            border-bottom: 2px solid var(--black);
+        }
+
+        .accordion-item:first-child {
+            border-top: 2px solid var(--black);
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 20px;
+            cursor: pointer;
+            background: var(--white);
+            transition: background 0.2s ease;
+        }
+
+        .accordion-header:active {
+            background: #f5f5f5;
+        }
+
+        .accordion-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .accordion-icon {
+            font-size: 24px;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .accordion-content.open {
+            max-height: 2000px;
+        }
+
+        .accordion-inner {
+            padding: 32px 20px;
+        }
+
+        .accordion-inner .section-title {
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+
+        .accordion-inner .pillar {
+            margin-bottom: 12px;
+        }
+
+        .accordion-inner .mentor-grid {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 100%;
+            gap: 16px;
+        }
+
+        .accordion-inner .country-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-width: 100%;
+        }
+
+        .accordion-inner .partner-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        /* Show accordion on mobile, hide on desktop */
+        @media (max-width: 768px) {
+            .mobile-accordion-container {
+                display: block;
+            }
+
+            /* Hide these sections on mobile - replaced by accordion */
+            #program,
+            #pillars,
+            #sandbox,
+            #global,
+            #mentors,
+            #partners,
+            #cta {
+                display: none !important;
+            }
+        }
+
         /* RESPONSIVE - MOBILE (max-width: 768px) */
         @media (max-width: 768px) {
             section {
@@ -4169,6 +4274,130 @@
         <div class="scroll-line"></div>
     </section>
 
+    <!-- MOBILE ACCORDION (Only shows on mobile) -->
+    <div class="mobile-accordion-container">
+        <!-- THE PROGRAM -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span class="accordion-title">The Program</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <p style="font-size: 18px; line-height: 1.6; margin-bottom: 24px;">Build companies. Ship products. Change industries.</p>
+                    <p style="font-size: 14px; line-height: 1.7; opacity: 0.8;">DDI is Thailand's first startup-focused university program. We believe in learning by doing — building real products, launching real companies, and solving real problems.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAT YOU'LL LEARN -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span class="accordion-title">What You'll Learn</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 16px; border-left: 3px solid white;">
+                            <strong style="font-size: 13px; letter-spacing: 0.1em;">DESIGN THINKING</strong>
+                            <p style="font-size: 12px; opacity: 0.7; margin-top: 8px;">Human-centered problem solving</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 16px; border-left: 3px solid white;">
+                            <strong style="font-size: 13px; letter-spacing: 0.1em;">PRODUCT</strong>
+                            <p style="font-size: 12px; opacity: 0.7; margin-top: 8px;">Build & ship real products</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 16px; border-left: 3px solid white;">
+                            <strong style="font-size: 13px; letter-spacing: 0.1em;">TECH</strong>
+                            <p style="font-size: 12px; opacity: 0.7; margin-top: 8px;">AI, code, and digital tools</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 16px; border-left: 3px solid white;">
+                            <strong style="font-size: 13px; letter-spacing: 0.1em;">BUSINESS</strong>
+                            <p style="font-size: 12px; opacity: 0.7; margin-top: 8px;">Strategy, growth, fundraising</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OUR MENTORS -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span class="accordion-title">Our Mentors</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px;">Learn from founders and executives at leading companies:</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div style="background: rgba(255,255,255,0.05); padding: 14px; text-align: center;">
+                            <div style="font-size: 12px; font-weight: 600;">Google</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 14px; text-align: center;">
+                            <div style="font-size: 12px; font-weight: 600;">Meta</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 14px; text-align: center;">
+                            <div style="font-size: 12px; font-weight: 600;">Apple</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 14px; text-align: center;">
+                            <div style="font-size: 12px; font-weight: 600;">LINE</div>
+                        </div>
+                    </div>
+                    <a href="mentors.html" style="display: block; margin-top: 20px; color: white; font-size: 12px; letter-spacing: 0.1em;">VIEW ALL MENTORS →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- GLOBAL NETWORK -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span class="accordion-title">Study Abroad</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px;">Exchange programs in 6 countries:</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div style="padding: 12px; text-align: center;">🇬🇧 <span style="font-size: 12px;">UK</span></div>
+                        <div style="padding: 12px; text-align: center;">🇺🇸 <span style="font-size: 12px;">USA</span></div>
+                        <div style="padding: 12px; text-align: center;">🇫🇷 <span style="font-size: 12px;">France</span></div>
+                        <div style="padding: 12px; text-align: center;">🇩🇪 <span style="font-size: 12px;">Germany</span></div>
+                        <div style="padding: 12px; text-align: center;">🇯🇵 <span style="font-size: 12px;">Japan</span></div>
+                        <div style="padding: 12px; text-align: center;">🇰🇷 <span style="font-size: 12px;">Korea</span></div>
+                    </div>
+                    <a href="global.html" style="display: block; margin-top: 20px; color: white; font-size: 12px; letter-spacing: 0.1em;">LEARN MORE →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- INDUSTRY PARTNERS -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span class="accordion-title">Industry Partners</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px;">Real projects with real companies:</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span style="background: rgba(255,255,255,0.1); padding: 8px 14px; font-size: 11px; letter-spacing: 0.05em;">KASIKORN</span>
+                        <span style="background: rgba(255,255,255,0.1); padding: 8px 14px; font-size: 11px; letter-spacing: 0.05em;">SAHA GROUP</span>
+                        <span style="background: rgba(255,255,255,0.1); padding: 8px 14px; font-size: 11px; letter-spacing: 0.05em;">TRUE</span>
+                        <span style="background: rgba(255,255,255,0.1); padding: 8px 14px; font-size: 11px; letter-spacing: 0.05em;">MICROSOFT</span>
+                        <span style="background: rgba(255,255,255,0.1); padding: 8px 14px; font-size: 11px; letter-spacing: 0.05em;">AIRASIA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Apply CTA for mobile -->
+        <div style="padding: 48px 20px; text-align: center; background: var(--black);">
+            <p style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 8px;">Ready to build?</p>
+            <p style="color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 24px;">Applications open for 2025</p>
+            <a href="apply.html" style="display: inline-block; background: white; color: black; padding: 16px 40px; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-decoration: none;">APPLY NOW</a>
+        </div>
+    </div>
+
     <!-- PROGRAM - White -->
     <section id="program" class="section-light">
         <div class="bar fade-in border-draw"></div>
@@ -4836,6 +5065,27 @@
             if (e.key === 'Escape' && waitlistModal.classList.contains('active')) {
                 closeWaitlistModal();
             }
+        });
+
+        // MOBILE ACCORDION FUNCTIONALITY
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.accordion-icon');
+                const isOpen = content.classList.contains('open');
+
+                // Close all other accordions
+                document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+                    if (openContent !== content) {
+                        openContent.classList.remove('open');
+                        openContent.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+                    }
+                });
+
+                // Toggle current accordion
+                content.classList.toggle('open');
+                icon.textContent = content.classList.contains('open') ? '−' : '+';
+            });
         });
 
     </script>
