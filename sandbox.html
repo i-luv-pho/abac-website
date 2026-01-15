@@ -733,6 +733,380 @@
                 gap: 12px;
             }
         }
+
+        /* ============================================
+           SANDBOX HERO - VANTA.JS NET BACKGROUND
+           ============================================ */
+
+        #sandbox-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #sandbox-hero > *:not(.vanta-canvas) {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================
+           BUILDING BLOCKS VISUAL
+           ============================================ */
+        .building-visual {
+            position: relative;
+            width: 320px;
+            height: 280px;
+            margin: 48px auto 24px;
+        }
+
+        .block {
+            position: absolute;
+            border: 2px solid var(--black);
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .block-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Main stacked blocks */
+        .block-1 { width: 200px; height: 50px; bottom: 0; left: 50%; transform: translateX(-50%); }
+        .block-2 { width: 170px; height: 50px; bottom: 55px; left: 50%; transform: translateX(-50%); }
+        .block-3 { width: 140px; height: 50px; bottom: 110px; left: 50%; transform: translateX(-50%); }
+        .block-4 { width: 110px; height: 50px; bottom: 165px; left: 50%; transform: translateX(-50%); }
+
+        /* Floating side elements */
+        .block-side-1 { width: 40px; height: 40px; top: 20px; left: 10px; opacity: 0.3; }
+        .block-side-2 { width: 30px; height: 30px; top: 80px; right: 20px; opacity: 0.2; }
+        .block-side-3 { width: 25px; height: 25px; bottom: 100px; left: 20px; opacity: 0.15; }
+        .block-side-4 { width: 35px; height: 35px; bottom: 40px; right: 10px; opacity: 0.25; }
+
+        /* Floating circles */
+        .block-circle {
+            border-radius: 50%;
+        }
+        .block-circle-1 { width: 20px; height: 20px; top: 60px; left: 40px; opacity: 0.2; }
+        .block-circle-2 { width: 15px; height: 15px; top: 120px; right: 40px; opacity: 0.15; }
+
+        .building-caption {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            margin-top: 16px;
+        }
+
+        /* ============================================
+           DIAMOND FLOWCHART - 4 PHASES
+           ============================================ */
+        .phases-diamond {
+            margin-top: 48px;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .phases-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        .phase-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .phase-row-center {
+            margin: 24px 0;
+        }
+
+        .phase-box {
+            border: 2px solid currentColor;
+            padding: 24px 32px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            min-width: 160px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .phase-box:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: scale(1.05);
+        }
+
+        .phase-num {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            opacity: 0.4;
+            margin-bottom: 8px;
+        }
+
+        .phase-name {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .phase-desc {
+            font-size: 12px;
+            opacity: 0.7;
+            line-height: 1.5;
+        }
+
+        .phase-connector {
+            width: 2px;
+            height: 24px;
+            background: currentColor;
+            opacity: 0.3;
+        }
+
+        .phase-arrow {
+            font-size: 24px;
+            opacity: 0.4;
+        }
+
+        /* ============================================
+           CHOOSE YOUR PATH - DECISION TREE
+           ============================================ */
+        .path-section {
+            margin-top: 48px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .path-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .path-start {
+            border: 2px solid currentColor;
+            padding: 20px 40px;
+            text-align: center;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .path-start-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .path-start-sub {
+            font-size: 12px;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        .path-trunk {
+            width: 2px;
+            height: 40px;
+            background: currentColor;
+            opacity: 0.3;
+        }
+
+        .path-spread {
+            width: 60%;
+            height: 2px;
+            background: currentColor;
+            opacity: 0.3;
+        }
+
+        .path-options {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 900px;
+            gap: 24px;
+            margin-top: 0;
+        }
+
+        .path-option {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .path-option-line {
+            width: 2px;
+            height: 40px;
+            background: currentColor;
+            opacity: 0.3;
+        }
+
+        .path-card {
+            border: 2px solid currentColor;
+            padding: 24px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .path-card:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-4px);
+        }
+
+        .path-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border: 1px solid currentColor;
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+
+        .path-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .path-card-desc {
+            font-size: 13px;
+            opacity: 0.7;
+            line-height: 1.5;
+        }
+
+        .path-suboptions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 16px;
+            width: 100%;
+        }
+
+        .path-suboption {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 10px 16px;
+            border: 1px solid rgba(0,0,0,0.2);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .path-suboption:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        /* ============================================
+           FACULTY GRID
+           ============================================ */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin-top: 48px;
+        }
+
+        .faculty-card {
+            border: 2px solid currentColor;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .faculty-card:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-4px);
+        }
+
+        .faculty-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .faculty-role {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 12px;
+        }
+
+        .faculty-credential {
+            font-size: 13px;
+            opacity: 0.8;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .faculty-expertise {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            opacity: 0.5;
+        }
+
+        .faculty-cta {
+            display: block;
+            margin-top: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+        }
+
+        /* Responsive for new sections */
+        @media (max-width: 768px) {
+            .building-visual {
+                width: 260px;
+                height: 240px;
+            }
+            .block-1 { width: 160px; height: 45px; }
+            .block-2 { width: 135px; height: 45px; bottom: 50px; }
+            .block-3 { width: 110px; height: 45px; bottom: 100px; }
+            .block-4 { width: 85px; height: 45px; bottom: 150px; }
+            .phase-row { flex-direction: column; gap: 16px; }
+            .phase-row-center { flex-direction: column; }
+            .phase-arrow { transform: rotate(90deg); }
+            .path-options { flex-direction: column; }
+            .path-spread { display: none; }
+            .faculty-grid { grid-template-columns: 1fr; max-width: 320px; }
+        }
     </style>
 </head>
 <body>
@@ -764,8 +1138,8 @@
         <a href="apply.html" class="nav-cta">Apply Now</a>
     </div>
 
-    <!-- HERO -->
-    <section class="section-dark">
+    <!-- HERO with Vanta.js NET background -->
+    <section id="sandbox-hero" class="section-dark">
         <h1 class="page-title fade-in" style="margin: 24px 0;">THE SANDBOX</h1>
         <p class="subtitle fade-in">A playground for entrepreneurs. Experiment, fail fast, and build real businesses before you graduate.</p>
     </section>
@@ -774,46 +1148,80 @@
     <section class="section-light">
         <h2 class="section-title fade-in" style="margin: 16px 0;">LEARN BY DOING</h2>
 
+        <!-- Building Blocks Visual -->
+        <div class="building-visual fade-in">
+            <!-- Main stacked blocks -->
+            <div class="block block-1"><span class="block-label">Foundation</span></div>
+            <div class="block block-2"><span class="block-label">Validate</span></div>
+            <div class="block block-3"><span class="block-label">Build</span></div>
+            <div class="block block-4"><span class="block-label">Launch</span></div>
+            <!-- Floating side elements -->
+            <div class="block block-side-1"></div>
+            <div class="block block-side-2"></div>
+            <div class="block block-side-3"></div>
+            <div class="block block-side-4"></div>
+            <div class="block block-circle block-circle-1"></div>
+            <div class="block block-circle block-circle-2"></div>
+        </div>
+        <p class="building-caption fade-in">Build your business block by block</p>
+
         <div class="sandbox-intro fade-in">
-            <p>The Sandbox is DDI's signature hands-on entrepreneurship experience. It's a space where you can experiment and start a real business—testing ideas without fear of failure. Business coaches and program mechanisms support and guide you through every challenge.</p>
+            <p>The Sandbox is DDI's signature hands-on entrepreneurship experience. It's a space where you can experiment and start a real business—testing ideas without fear of failure.</p>
         </div>
 
-        <div class="sandbox-intro fade-in" style="margin-top: 32px;">
+        <div class="sandbox-intro fade-in" style="margin-top: 24px;">
             <p>Think of it as a playground for entrepreneurs. You gain practical business experience through trial-and-error in a supported environment before entering the actual marketplace.</p>
         </div>
     </section>
 
-    <!-- PROCESS -->
+    <!-- PROCESS - Diamond Flowchart -->
     <section class="section-dark">
         <h2 class="section-title fade-in" style="margin: 16px 0;">4 PHASES</h2>
 
-        <div class="process-section">
-            <div class="process-grid stagger">
-                <a href="phases/ideate.html" class="process-step fade-in">
-                    <div class="process-number">01</div>
-                    <h3 class="process-title">Ideate</h3>
-                    <p class="process-desc">Generate business ideas through design thinking workshops and market research.</p>
-                    <span class="process-arrow">→</span>
-                </a>
-                <a href="phases/validate.html" class="process-step fade-in">
-                    <div class="process-number">02</div>
-                    <h3 class="process-title">Validate</h3>
-                    <p class="process-desc">Test assumptions with real customers. Conduct interviews and prototype testing.</p>
-                    <span class="process-arrow">→</span>
-                </a>
-                <a href="phases/build.html" class="process-step fade-in">
-                    <div class="process-number">03</div>
-                    <h3 class="process-title">Build</h3>
-                    <p class="process-desc">Create your MVP. Register as a real company. Start operations with seed funding.</p>
-                    <span class="process-arrow">→</span>
-                </a>
-                <a href="phases/launch.html" class="process-step fade-in">
-                    <div class="process-number">04</div>
-                    <h3 class="process-title">Launch</h3>
-                    <p class="process-desc">Go to market. Acquire real customers. Generate actual revenue.</p>
-                </a>
+        <div class="phases-diamond fade-in">
+            <div class="phases-container">
+                <!-- Top: IDEATE -->
+                <div class="phase-row">
+                    <a href="phases/ideate.html" class="phase-box">
+                        <div class="phase-num">01</div>
+                        <h3 class="phase-name">Ideate</h3>
+                        <p class="phase-desc">Design thinking workshops and market research</p>
+                    </a>
+                </div>
+
+                <!-- Connector -->
+                <div class="phase-connector"></div>
+
+                <!-- Middle: VALIDATE <-> BUILD -->
+                <div class="phase-row phase-row-center">
+                    <a href="phases/validate.html" class="phase-box">
+                        <div class="phase-num">02</div>
+                        <h3 class="phase-name">Validate</h3>
+                        <p class="phase-desc">Test with real customers</p>
+                    </a>
+                    <span class="phase-arrow">&harr;</span>
+                    <a href="phases/build.html" class="phase-box">
+                        <div class="phase-num">03</div>
+                        <h3 class="phase-name">Build</h3>
+                        <p class="phase-desc">Create MVP, start operations</p>
+                    </a>
+                </div>
+
+                <!-- Connector -->
+                <div class="phase-connector"></div>
+
+                <!-- Bottom: LAUNCH -->
+                <div class="phase-row">
+                    <a href="phases/launch.html" class="phase-box">
+                        <div class="phase-num">04</div>
+                        <h3 class="phase-name">Launch</h3>
+                        <p class="phase-desc">Go to market, acquire customers, generate revenue</p>
+                    </a>
+                </div>
             </div>
         </div>
+
+        <p class="subtitle fade-in" style="margin-top: 48px; font-size: 14px; opacity: 0.6;">Iterate between phases until you find product-market fit</p>
     </section>
 
     <!-- FUNDING -->
@@ -821,7 +1229,7 @@
         <h2 class="section-title fade-in" style="margin: 16px 0;">SEED FUNDING</h2>
 
         <div class="funding-box fade-in">
-            <div class="funding-amount">฿50K</div>
+            <div class="funding-amount">฿150K</div>
             <div class="funding-label">Per Team</div>
             <p class="funding-desc">Students receive funding from Assumption University to create their own businesses. This isn't play money—it's real capital to launch real ventures.</p>
         </div>
@@ -889,17 +1297,130 @@
         </a>
     </section>
 
+    <!-- CHOOSE YOUR PATH - Decision Tree -->
+    <section class="section-light" id="paths">
+        <h2 class="section-title fade-in" style="margin: 16px 0;">CHOOSE YOUR PATH</h2>
+        <p class="subtitle fade-in" style="color: var(--black);">After Year 2 in the Sandbox, you decide your Year 3</p>
+
+        <div class="path-section fade-in">
+            <div class="path-visual">
+                <!-- Root node -->
+                <div class="path-start">
+                    <p class="path-start-title">After Sandbox</p>
+                    <p class="path-start-sub">Year 3 Options</p>
+                </div>
+
+                <!-- Trunk connector -->
+                <div class="path-trunk"></div>
+
+                <!-- Horizontal spread -->
+                <div class="path-spread"></div>
+
+                <!-- Three main branches -->
+                <div class="path-options">
+                    <!-- GO GLOBAL Branch -->
+                    <div class="path-option">
+                        <div class="path-option-line"></div>
+                        <a href="global.html" class="path-card">
+                            <span class="path-badge">Study Abroad</span>
+                            <h3 class="path-card-title">Go Global</h3>
+                            <p class="path-card-desc">2+1 years for double or triple degree at partner universities</p>
+                        </a>
+                        <div class="path-suboptions">
+                            <a href="schools/northampton.html" class="path-suboption">Northampton, UK</a>
+                            <a href="schools/bournemouth.html" class="path-suboption">Bournemouth, UK</a>
+                            <a href="schools/shms.html" class="path-suboption">SHMS, Switzerland</a>
+                            <a href="schools/essex.html" class="path-suboption">Essex, UK (Masters)</a>
+                        </div>
+                    </div>
+
+                    <!-- THAILAND TRACKS Branch -->
+                    <div class="path-option">
+                        <div class="path-option-line"></div>
+                        <a href="tracks.html" class="path-card">
+                            <span class="path-badge">Stay in Thailand</span>
+                            <h3 class="path-card-title">Local Tracks</h3>
+                            <p class="path-card-desc">Four flexible pathways to complete your degree in Thailand</p>
+                        </a>
+                        <div class="path-suboptions">
+                            <a href="tracks/academic.html" class="path-suboption">Academic Track</a>
+                            <a href="tracks/hybrid.html" class="path-suboption">Hybrid Track</a>
+                            <a href="tracks/internship.html" class="path-suboption">Full Internship</a>
+                            <a href="tracks/entrepreneur.html" class="path-suboption">Entrepreneur Track</a>
+                        </div>
+                    </div>
+
+                    <!-- TRUE ACADEMY Branch -->
+                    <div class="path-option">
+                        <div class="path-option-line"></div>
+                        <a href="programs/true-academy.html" class="path-card">
+                            <span class="path-badge">Industry Partner</span>
+                            <h3 class="path-card-title">True Academy</h3>
+                            <p class="path-card-desc">4-5 month internship at True Corporation with job certification</p>
+                        </a>
+                        <div class="path-suboptions">
+                            <a href="programs/true-academy.html#benefits" class="path-suboption">Earn Credits</a>
+                            <a href="programs/true-academy.html#certification" class="path-suboption">Job Certification</a>
+                            <a href="programs/true-academy.html#hiring" class="path-suboption">Priority Hiring</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="subtitle fade-in" style="margin-top: 64px; font-size: 14px; opacity: 0.6; color: var(--black);">All paths lead to your BBA degree. Choose the journey that fits your goals.</p>
+    </section>
+
     <!-- PARTNERS -->
-    <section class="section-light">
+    <section class="section-dark">
         <h2 class="section-title fade-in" style="margin: 16px 0;">PARTNERS</h2>
 
         <div class="partners-grid stagger">
-            <a href="partners/kasikorn.html" class="partner-item fade-in">Kasikorn Bank</a>
-            <a href="partners/stanford.html" class="partner-item fade-in">Stanford Thailand Research</a>
-            <a href="partners/thaihealth.html" class="partner-item fade-in">Thai Health Promotion</a>
-            <a href="partners/healthtechx.html" class="partner-item fade-in">HealthTechX</a>
-            <a href="partners/tat.html" class="partner-item fade-in">Tourism Authority Thailand</a>
-            <a href="partners/depa.html" class="partner-item fade-in">Digital Economy Promotion Agency</a>
+            <a href="partners/kasikorn.html" class="partner-item fade-in" style="color: white; border-color: rgba(255,255,255,0.3);">Kasikorn Bank</a>
+            <a href="partners/stanford.html" class="partner-item fade-in" style="color: white; border-color: rgba(255,255,255,0.3);">Stanford Thailand Research</a>
+            <a href="partners/thaihealth.html" class="partner-item fade-in" style="color: white; border-color: rgba(255,255,255,0.3);">Thai Health Promotion</a>
+            <a href="partners/healthtechx.html" class="partner-item fade-in" style="color: white; border-color: rgba(255,255,255,0.3);">HealthTechX</a>
+            <a href="partners/tat.html" class="partner-item fade-in" style="color: white; border-color: rgba(255,255,255,0.3);">Tourism Authority Thailand</a>
+            <a href="partners/depa.html" class="partner-item fade-in" style="color: white; border-color: rgba(255,255,255,0.3);">DEPA</a>
+        </div>
+    </section>
+
+    <!-- FACULTY -->
+    <section id="faculty" class="section-light">
+        <h2 class="section-title fade-in" style="margin: 16px 0;">FACULTY</h2>
+        <p class="subtitle fade-in" style="margin-top: 24px; color: var(--black);">Learn from academics and industry experts who bring real-world experience to the classroom.</p>
+
+        <div class="faculty-grid stagger">
+            <a href="faculty/natamon.html" class="faculty-card fade-in">
+                <p class="faculty-name">Dr. Natamon Phumpradab</p>
+                <p class="faculty-role">Chairperson</p>
+                <p class="faculty-credential">Ph.D. Business Administration (Marketing)<br>Sasin School of Management</p>
+                <p class="faculty-expertise">Marketing Strategy, Consumer Behavior, Digital Marketing</p>
+            </a>
+            <a href="faculty/walee.html" class="faculty-card fade-in">
+                <p class="faculty-name">Ms. Walee Thongkhum</p>
+                <p class="faculty-role">Deputy Chair</p>
+                <p class="faculty-credential">M.S. Statistics<br>University of Wollongong, Australia</p>
+                <p class="faculty-expertise">Data Analytics, Research Methods, Business Statistics</p>
+            </a>
+            <a href="faculty/kittipong.html" class="faculty-card fade-in">
+                <p class="faculty-name">Dr. Kittipong Laosethakul</p>
+                <p class="faculty-role">Instructor</p>
+                <p class="faculty-credential">Ph.D. Management<br>Auburn University, USA</p>
+                <p class="faculty-expertise">Information Systems, Technology Management, Digital Transformation</p>
+            </a>
+            <a href="faculty/songsak.html" class="faculty-card fade-in">
+                <p class="faculty-name">Dr. Songsak Channarukul</p>
+                <p class="faculty-role">Instructor</p>
+                <p class="faculty-credential">Ph.D. Computer Science<br>UW-Milwaukee, USA</p>
+                <p class="faculty-expertise">Software Development, AI/ML, Computer Systems</p>
+            </a>
+            <a href="faculty/sirapob.html" class="faculty-card fade-in">
+                <p class="faculty-name">Mr. Sirapob Thangseresuk</p>
+                <p class="faculty-role">Instructor</p>
+                <p class="faculty-credential">M.Arch. Design for Manufacture<br>UCL, United Kingdom</p>
+                <p class="faculty-expertise">Design Thinking, Product Design, Innovation</p>
+            </a>
         </div>
     </section>
 
@@ -951,6 +1472,10 @@
         <p class="footer-text">Design & Digital Innovation | Assumption University Thailand</p>
     </footer>
 
+    <!-- Vanta.js for animated background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+
     <script>
         // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
@@ -990,6 +1515,26 @@
                 document.body.style.overflow = '';
             });
         });
+
+        // VANTA.JS NET BACKGROUND for Sandbox Hero
+        if (typeof VANTA !== 'undefined') {
+            VANTA.NET({
+                el: "#sandbox-hero",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0xffffff,
+                backgroundColor: 0x000000,
+                points: 12.00,
+                maxDistance: 20.00,
+                spacing: 18.00,
+                showDots: true
+            });
+        }
     </script>
 </body>
 </html>
