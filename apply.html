@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply | DDI - Design & Digital Innovation</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Meta Tags -->
+    <meta name="description" content="Apply to DDI - Thailand's first startup-focused BBA program at Assumption University. Start your entrepreneurship journey today.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Apply to DDI">
+    <meta property="og:description" content="Join Thailand's first startup-focused BBA. Build real companies, get seed funding.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abac-ddi.vercel.app/apply.html">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -558,6 +571,43 @@
             outline: none;
             background: var(--white);
             color: var(--black);
+        }
+
+        /* Form Validation States */
+        .form-input:invalid:not(:placeholder-shown),
+        .form-textarea:invalid:not(:placeholder-shown) {
+            border-color: #DC2626;
+        }
+
+        .form-input:valid:not(:placeholder-shown),
+        .form-textarea:valid:not(:placeholder-shown) {
+            border-color: #16A34A;
+        }
+
+        .form-input[required]::placeholder::after,
+        .form-label.required::after {
+            content: ' *';
+            color: #DC2626;
+        }
+
+        .form-error {
+            color: #DC2626;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-input:invalid:not(:placeholder-shown) ~ .form-error {
+            display: block;
+        }
+
+        .form-success {
+            background: #16A34A;
+            color: white;
+            padding: 16px 24px;
+            text-align: center;
+            margin-top: 24px;
+            display: none;
         }
 
         .form-textarea {
