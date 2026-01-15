@@ -1855,52 +1855,53 @@
         /* RESPONSIVE - MOBILE (max-width: 768px) */
         @media (max-width: 768px) {
             section {
-                padding: 80px 20px;
+                padding: 64px 20px;
                 min-height: auto;
             }
 
             .hero-title {
-                font-size: clamp(50px, 18vw, 100px);
+                font-size: clamp(44px, 14vw, 80px);
             }
 
             .subtitle {
-                font-size: 16px;
+                font-size: 14px;
+                letter-spacing: 0.12em;
             }
 
             .school-name {
-                font-size: 10px;
+                font-size: 9px;
             }
 
             .section-title {
-                font-size: clamp(28px, 10vw, 48px);
+                font-size: clamp(24px, 8vw, 40px);
             }
 
             .heading-lg {
-                font-size: clamp(24px, 6vw, 36px);
+                font-size: clamp(22px, 5vw, 32px);
             }
 
             .grid-2x2 {
                 grid-template-columns: 1fr;
-                max-width: 280px;
-                gap: 16px;
+                max-width: 260px;
+                gap: 12px;
             }
 
             .pillar {
-                padding: 24px 20px;
+                padding: 20px 16px;
             }
 
             .country-grid {
                 grid-template-columns: 1fr;
-                max-width: 320px;
-                gap: 20px;
+                max-width: 300px;
+                gap: 16px;
             }
 
             .country-card {
-                padding: 24px 20px;
+                padding: 20px 16px;
             }
 
             .country-flag {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             .deco-line {
@@ -2042,29 +2043,113 @@
         /* RESPONSIVE - SMALL MOBILE (max-width: 480px) */
         @media (max-width: 480px) {
             section {
-                padding: 60px 16px;
+                padding: 52px 16px;
             }
 
             .hero-title {
-                font-size: clamp(40px, 20vw, 80px);
+                font-size: clamp(36px, 16vw, 64px);
             }
 
             .subtitle {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .section-title {
-                font-size: clamp(24px, 12vw, 40px);
-                letter-spacing: 0.05em;
+                font-size: clamp(22px, 10vw, 36px);
+                letter-spacing: 0.04em;
             }
 
             .caps {
-                font-size: 11px;
-                letter-spacing: 0.2em;
+                font-size: 10px;
+                letter-spacing: 0.18em;
             }
 
             .grid-2x2 {
+                max-width: 240px;
+            }
+
+            .pillar-text {
+                font-size: 10px;
+            }
+
+            .country-grid {
                 max-width: 260px;
+            }
+
+            .mentor-grid {
+                grid-template-columns: 1fr;
+                max-width: 240px;
+            }
+
+            .global-stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
+            .big-number {
+                font-size: clamp(44px, 18vw, 70px);
+            }
+
+            .btn {
+                padding: 12px 28px;
+                font-size: 11px;
+            }
+
+            .quote-text {
+                font-size: 15px;
+            }
+
+            .program-quote {
+                font-size: 16px;
+            }
+
+            .feature-list li {
+                font-size: 13px;
+            }
+        }
+
+        /* iPhone 14/15 Plus, Pro Max (428px) */
+        @media (max-width: 428px) {
+            section {
+                padding: 52px 16px;
+            }
+
+            .hero-title {
+                font-size: clamp(38px, 17vw, 70px);
+            }
+
+            .subtitle {
+                font-size: 13px;
+                letter-spacing: 0.1em;
+            }
+
+            .section-title {
+                font-size: clamp(22px, 10vw, 36px);
+            }
+
+            .cta-title {
+                font-size: clamp(26px, 12vw, 44px);
+            }
+
+            .heading-lg {
+                font-size: clamp(20px, 5vw, 28px);
+            }
+
+            .caps {
+                font-size: 10px;
+                letter-spacing: 0.16em;
+            }
+
+            .grid-2x2 {
+                max-width: 250px;
+                gap: 10px;
+            }
+
+            .pillar {
+                padding: 18px 14px;
             }
 
             .pillar-text {
@@ -2075,26 +2160,24 @@
                 max-width: 280px;
             }
 
+            .country-name {
+                font-size: 13px;
+            }
+
             .mentor-grid {
-                grid-template-columns: 1fr;
-                max-width: 260px;
+                max-width: 230px;
             }
 
-            .global-stats {
-                gap: 24px;
+            .mentor-name {
+                font-size: 14px;
             }
 
-            .stat-number {
-                font-size: 36px;
+            .faculty-card {
+                padding: 22px 18px;
             }
 
-            .big-number {
-                font-size: clamp(50px, 20vw, 80px);
-            }
-
-            .btn {
-                padding: 14px 32px;
-                font-size: 12px;
+            .faculty-name {
+                font-size: 15px;
             }
 
             .quote-text {
@@ -2102,103 +2185,32 @@
             }
 
             .program-quote {
-                font-size: 18px;
+                font-size: 17px;
             }
 
-            .feature-list li {
-                font-size: 14px;
-            }
-        }
-
-        /* iPhone 14 Pro Max */
-        @media (max-width: 428px) {
-            section {
-                padding: 56px 16px;
+            .program-body {
+                font-size: 15px;
             }
 
-            .hero-title {
-                font-size: clamp(36px, 18vw, 72px);
+            .big-number {
+                font-size: clamp(48px, 16vw, 80px);
             }
 
-            .cta-title {
-                font-size: clamp(28px, 14vw, 48px);
+            .stat-number {
+                font-size: 36px;
             }
 
-            .section-title {
-                font-size: clamp(22px, 11vw, 36px);
+            .stat-label {
+                font-size: 9px;
+            }
+
+            .process-step {
+                padding: 10px 18px;
+                font-size: 11px;
             }
 
             .partner-grid {
                 gap: 12px;
-            }
-
-            .partner-card {
-                padding: 20px 16px;
-            }
-        }
-
-        /* Android / Samsung */
-        @media (max-width: 412px) {
-            .nav-container {
-                padding: 0 16px;
-            }
-
-            .hero-title {
-                font-size: clamp(34px, 17vw, 68px);
-            }
-
-            .grid-2x2 {
-                max-width: 240px;
-                gap: 8px;
-            }
-
-            .pillar-text {
-                font-size: 10px;
-                padding: 16px 10px;
-            }
-
-            .mentor-grid {
-                max-width: 240px;
-            }
-
-            .btn {
-                padding: 14px 28px;
-                font-size: 11px;
-            }
-        }
-
-        /* iPhone 14/15 */
-        @media (max-width: 390px) {
-            section {
-                padding: 48px 14px;
-            }
-
-            .hero-title {
-                font-size: clamp(32px, 16vw, 64px);
-            }
-
-            .subtitle {
-                font-size: 13px;
-            }
-
-            .section-title {
-                font-size: clamp(20px, 10vw, 32px);
-            }
-
-            .caps {
-                font-size: 10px;
-            }
-
-            .grid-2x2 {
-                max-width: 220px;
-            }
-
-            .country-grid {
-                max-width: 260px;
-            }
-
-            .mentor-grid {
-                max-width: 220px;
             }
 
             .partner-card {
@@ -2208,60 +2220,85 @@
             .partner-name {
                 font-size: 13px;
             }
-        }
 
-        /* iPhone SE / Small devices */
-        @media (max-width: 375px) {
-            section {
-                padding: 44px 12px;
+            .btn {
+                padding: 14px 32px;
+                font-size: 11px;
             }
 
-            .nav-logo {
-                font-size: 20px;
+            .teaching-body {
+                font-size: 16px;
+            }
+
+            .track {
+                font-size: 10px;
+                padding: 10px 18px;
+            }
+        }
+
+        /* Android / Samsung Galaxy (412px) */
+        @media (max-width: 412px) {
+            section {
+                padding: 50px 15px;
+            }
+
+            .nav-container {
+                padding: 0 15px;
             }
 
             .hero-title {
-                font-size: clamp(28px, 14vw, 56px);
+                font-size: clamp(36px, 16vw, 66px);
             }
 
             .subtitle {
                 font-size: 12px;
-                letter-spacing: 0.15em;
+                letter-spacing: 0.1em;
             }
 
             .section-title {
-                font-size: clamp(18px, 9vw, 28px);
+                font-size: clamp(21px, 9.5vw, 34px);
             }
 
             .cta-title {
-                font-size: clamp(24px, 12vw, 40px);
+                font-size: clamp(24px, 11vw, 42px);
+            }
+
+            .heading-lg {
+                font-size: clamp(19px, 4.5vw, 26px);
             }
 
             .caps {
-                font-size: 9px;
+                font-size: 10px;
                 letter-spacing: 0.15em;
             }
 
             .grid-2x2 {
-                max-width: 200px;
-                gap: 6px;
+                max-width: 240px;
+                gap: 8px;
+            }
+
+            .pillar {
+                padding: 16px 12px;
             }
 
             .pillar-text {
-                font-size: 9px;
-                padding: 14px 8px;
+                font-size: 10px;
             }
 
             .country-grid {
-                max-width: 240px;
+                max-width: 270px;
             }
 
             .country-name {
-                font-size: 12px;
+                font-size: 13px;
+            }
+
+            .country-flag {
+                font-size: 30px;
             }
 
             .mentor-grid {
-                max-width: 200px;
+                max-width: 220px;
             }
 
             .mentor-name {
@@ -2269,7 +2306,52 @@
             }
 
             .mentor-company {
-                font-size: 10px;
+                font-size: 9px;
+            }
+
+            .faculty-card {
+                padding: 20px 16px;
+            }
+
+            .faculty-name {
+                font-size: 14px;
+            }
+
+            .faculty-expertise {
+                font-size: 9px;
+            }
+
+            .quote-box {
+                padding: 24px 18px;
+            }
+
+            .quote-text {
+                font-size: 15px;
+            }
+
+            .program-quote {
+                font-size: 16px;
+            }
+
+            .program-body {
+                font-size: 14px;
+            }
+
+            .big-number {
+                font-size: clamp(46px, 15vw, 76px);
+            }
+
+            .stat-number {
+                font-size: 34px;
+            }
+
+            .stat-label {
+                font-size: 9px;
+            }
+
+            .process-step {
+                padding: 9px 16px;
+                font-size: 11px;
             }
 
             .partner-grid {
@@ -2289,25 +2371,376 @@
             }
 
             .btn {
-                padding: 12px 24px;
+                padding: 13px 28px;
+                font-size: 11px;
+            }
+
+            .teaching-body {
+                font-size: 15px;
+            }
+
+            .track {
                 font-size: 10px;
-                letter-spacing: 0.15em;
+                padding: 9px 16px;
             }
 
-            .stat-number {
-                font-size: 32px;
+            .alt-tracks {
+                padding: 22px 18px;
             }
 
-            .big-number {
-                font-size: clamp(44px, 18vw, 72px);
+            .feature-list li {
+                font-size: 12px;
+            }
+        }
+
+        /* iPhone 14/15 (390px) */
+        @media (max-width: 390px) {
+            section {
+                padding: 46px 14px;
+            }
+
+            .nav-container {
+                padding: 0 14px;
+            }
+
+            .nav-logo {
+                font-size: 21px;
+            }
+
+            .hero-title {
+                font-size: clamp(34px, 15vw, 62px);
+            }
+
+            .subtitle {
+                font-size: 12px;
+                letter-spacing: 0.1em;
+            }
+
+            .section-title {
+                font-size: clamp(20px, 9vw, 32px);
+            }
+
+            .cta-title {
+                font-size: clamp(22px, 10vw, 38px);
+            }
+
+            .heading-lg {
+                font-size: clamp(18px, 4.5vw, 24px);
+            }
+
+            .caps {
+                font-size: 9px;
+                letter-spacing: 0.14em;
+            }
+
+            .grid-2x2 {
+                max-width: 230px;
+                gap: 8px;
+            }
+
+            .pillar {
+                padding: 15px 11px;
+            }
+
+            .pillar-text {
+                font-size: 10px;
+            }
+
+            .country-grid {
+                max-width: 260px;
+            }
+
+            .country-card {
+                padding: 18px 14px;
+            }
+
+            .country-name {
+                font-size: 12px;
+            }
+
+            .country-flag {
+                font-size: 28px;
+            }
+
+            .mentor-grid {
+                max-width: 210px;
+            }
+
+            .mentor-name {
+                font-size: 13px;
+            }
+
+            .mentor-company {
+                font-size: 9px;
+            }
+
+            .faculty-card {
+                padding: 18px 14px;
+            }
+
+            .faculty-name {
+                font-size: 13px;
+            }
+
+            .faculty-expertise {
+                font-size: 9px;
+            }
+
+            .quote-box {
+                padding: 22px 16px;
             }
 
             .quote-text {
                 font-size: 14px;
             }
 
-            .contact-info {
+            .program-quote {
+                font-size: 15px;
+            }
+
+            .program-body {
+                font-size: 14px;
+            }
+
+            .big-number {
+                font-size: clamp(44px, 14vw, 72px);
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
+            .stat-label {
+                font-size: 9px;
+            }
+
+            .process-step {
+                padding: 8px 14px;
+                font-size: 10px;
+            }
+
+            .partner-grid {
+                gap: 10px;
+            }
+
+            .partner-card {
+                padding: 16px 12px;
+            }
+
+            .partner-name {
+                font-size: 12px;
+            }
+
+            .partner-type {
+                font-size: 9px;
+            }
+
+            .btn {
+                padding: 12px 26px;
+                font-size: 10px;
+            }
+
+            .teaching-body {
+                font-size: 14px;
+            }
+
+            .track {
+                font-size: 10px;
+                padding: 8px 14px;
+            }
+
+            .alt-tracks {
+                padding: 20px 16px;
+            }
+
+            .feature-list li {
+                font-size: 12px;
+            }
+
+            .footer-logo {
+                font-size: 22px;
+            }
+
+            .footer-text {
+                font-size: 11px;
+            }
+        }
+
+        /* iPhone SE, iPhone 12/13 mini (375px) */
+        @media (max-width: 375px) {
+            section {
+                padding: 42px 12px;
+            }
+
+            .nav-container {
+                padding: 0 12px;
+            }
+
+            .nav-logo {
+                font-size: 19px;
+            }
+
+            .hero-title {
+                font-size: clamp(30px, 14vw, 56px);
+            }
+
+            .subtitle {
+                font-size: 11px;
+                letter-spacing: 0.08em;
+            }
+
+            .section-title {
+                font-size: clamp(18px, 8.5vw, 28px);
+            }
+
+            .cta-title {
+                font-size: clamp(20px, 9vw, 34px);
+            }
+
+            .heading-lg {
+                font-size: clamp(16px, 4vw, 22px);
+            }
+
+            .caps {
+                font-size: 9px;
+                letter-spacing: 0.12em;
+            }
+
+            .grid-2x2 {
+                max-width: 220px;
+                gap: 6px;
+            }
+
+            .pillar {
+                padding: 14px 10px;
+            }
+
+            .pillar-text {
+                font-size: 9px;
+            }
+
+            .country-grid {
+                max-width: 240px;
+            }
+
+            .country-card {
+                padding: 16px 12px;
+            }
+
+            .country-name {
+                font-size: 11px;
+            }
+
+            .country-flag {
+                font-size: 26px;
+            }
+
+            .mentor-grid {
+                max-width: 200px;
+            }
+
+            .mentor-name {
+                font-size: 12px;
+            }
+
+            .mentor-company {
+                font-size: 9px;
+            }
+
+            .faculty-card {
+                padding: 16px 12px;
+            }
+
+            .faculty-name {
+                font-size: 12px;
+            }
+
+            .faculty-expertise {
+                font-size: 8px;
+            }
+
+            .quote-box {
+                padding: 20px 14px;
+            }
+
+            .quote-text {
                 font-size: 13px;
+            }
+
+            .program-quote {
+                font-size: 14px;
+            }
+
+            .program-body {
+                font-size: 13px;
+            }
+
+            .big-number {
+                font-size: clamp(40px, 13vw, 68px);
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .stat-label {
+                font-size: 8px;
+            }
+
+            .process-step {
+                padding: 8px 12px;
+                font-size: 10px;
+            }
+
+            .partner-grid {
+                gap: 8px;
+            }
+
+            .partner-card {
+                padding: 14px 10px;
+            }
+
+            .partner-name {
+                font-size: 11px;
+            }
+
+            .partner-type {
+                font-size: 9px;
+            }
+
+            .btn {
+                padding: 11px 22px;
+                font-size: 10px;
+                letter-spacing: 0.12em;
+            }
+
+            .teaching-body {
+                font-size: 13px;
+            }
+
+            .track {
+                font-size: 9px;
+                padding: 8px 12px;
+            }
+
+            .alt-tracks {
+                padding: 18px 14px;
+            }
+
+            .feature-list li {
+                font-size: 11px;
+            }
+
+            .footer-logo {
+                font-size: 20px;
+            }
+
+            .footer-text {
+                font-size: 10px;
+            }
+
+            .contact-info {
+                font-size: 12px;
             }
         }
 
