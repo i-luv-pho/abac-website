@@ -1045,6 +1045,9 @@
             transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .faculty-card:hover {
@@ -1101,6 +1104,9 @@
         .mentor-item {
             text-align: center;
             transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .mentor-item:hover {
@@ -1126,6 +1132,49 @@
             font-weight: 500;
             opacity: 0.5;
             margin-top: 4px;
+        }
+
+        /* PARTNERS */
+        #partners {
+            text-align: center;
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+            max-width: 800px;
+        }
+
+        .partner-card {
+            border: 2px solid currentColor;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .partner-card:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-8px);
+        }
+
+        .partner-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .partner-type {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.6;
         }
 
         /* TEACHING */
@@ -2024,7 +2073,7 @@
             <div class="particle"></div>
         </div>
 
-        <p class="subtitle fade-in" style="margin-bottom: 8px;">Design & Digital Innovation<span class="typewriter-cursor"></span></p>
+        <p class="subtitle fade-in" style="margin-bottom: 8px;">Design & Digital Innovation</p>
         <p class="school-name fade-in">Assumption University Thailand</p>
 
         <div class="deco-line fade-in">
@@ -2263,6 +2312,7 @@
                 <a href="tracks/internship.html" class="track">FULL INTERNSHIP</a>
                 <a href="tracks/entrepreneur.html" class="track">ENTREPRENEUR TRACK</a>
                 <a href="tracks/academic.html" class="track">ACADEMIC TRACK</a>
+                <a href="tracks/hybrid.html" class="track">HYBRID TRACK</a>
             </div>
         </div>
 
@@ -2290,36 +2340,36 @@
         <div class="line line-grow" style="margin-top: 32px;"></div>
 
         <div class="faculty-grid stagger">
-            <div class="faculty-card fade-in tilt-3d">
+            <a href="faculty/natamon.html" class="faculty-card fade-in tilt-3d">
                 <p class="faculty-name">Dr. Natamon Phumpradab</p>
                 <p class="faculty-role">Chairperson</p>
                 <p class="faculty-credential">Ph.D. Business Administration (Marketing)<br>Sasin School of Management</p>
                 <p class="faculty-expertise">Marketing Strategy, Consumer Behavior, Digital Marketing</p>
-            </div>
-            <div class="faculty-card fade-in tilt-3d">
+            </a>
+            <a href="faculty/walee.html" class="faculty-card fade-in tilt-3d">
                 <p class="faculty-name">Ms. Walee Thongkhum</p>
                 <p class="faculty-role">Deputy Chair</p>
                 <p class="faculty-credential">M.S. Statistics<br>University of Wollongong, Australia</p>
                 <p class="faculty-expertise">Data Analytics, Research Methods, Business Statistics</p>
-            </div>
-            <div class="faculty-card fade-in tilt-3d">
+            </a>
+            <a href="faculty/kittipong.html" class="faculty-card fade-in tilt-3d">
                 <p class="faculty-name">Dr. Kittipong Laosethakul</p>
                 <p class="faculty-role">Instructor</p>
                 <p class="faculty-credential">Ph.D. Management<br>Auburn University, USA</p>
                 <p class="faculty-expertise">Information Systems, Technology Management, Digital Transformation</p>
-            </div>
-            <div class="faculty-card fade-in tilt-3d">
+            </a>
+            <a href="faculty/songsak.html" class="faculty-card fade-in tilt-3d">
                 <p class="faculty-name">Dr. Songsak Channarukul</p>
                 <p class="faculty-role">Instructor</p>
                 <p class="faculty-credential">Ph.D. Computer Science<br>UW-Milwaukee, USA</p>
                 <p class="faculty-expertise">Software Development, AI/ML, Computer Systems</p>
-            </div>
-            <div class="faculty-card fade-in tilt-3d">
+            </a>
+            <a href="faculty/sirapob.html" class="faculty-card fade-in tilt-3d">
                 <p class="faculty-name">Mr. Sirapob Thangseresuk</p>
                 <p class="faculty-role">Instructor</p>
                 <p class="faculty-credential">M.Arch. Design for Manufacture<br>UCL, United Kingdom</p>
                 <p class="faculty-expertise">Design Thinking, Product Design, Innovation</p>
-            </div>
+            </a>
         </div>
         <a href="program.html#faculty" class="btn fade-in" style="margin-top: 48px;">Meet All Faculty</a>
     </section>
@@ -2331,90 +2381,123 @@
         <div class="line line-grow" style="margin-top: 32px;"></div>
 
         <div class="mentor-grid stagger">
-            <div class="mentor-item fade-in">
+            <a href="mentors/boonkiat.html" class="mentor-item fade-in">
                 <p class="mentor-name">Dr. Boonkiat Chokwattana</p>
-                <p class="mentor-company">Sahapat PLC</p>
-                <p class="mentor-role">Business Coach</p>
-            </div>
-            <div class="mentor-item fade-in">
+                <p class="mentor-company">Saha Group</p>
+                <p class="mentor-role">Executive</p>
+            </a>
+            <a href="mentors/surat.html" class="mentor-item fade-in">
                 <p class="mentor-name">Dr. Surat Wongrattanapatsorn</p>
-                <p class="mentor-company">Sahapat PLC</p>
-                <p class="mentor-role">Business Coach</p>
-            </div>
-            <div class="mentor-item fade-in">
+                <p class="mentor-company">I.C.C. International</p>
+                <p class="mentor-role">VP Information Technology</p>
+            </a>
+            <a href="mentors/kittinut.html" class="mentor-item fade-in">
                 <p class="mentor-name">Dr. Kittinut Tikawan</p>
                 <p class="mentor-company">True Corporation</p>
-                <p class="mentor-role">Business Coach</p>
-            </div>
-            <div class="mentor-item fade-in">
-                <p class="mentor-name">Dr. Prapon Rattanachaikanon</p>
+                <p class="mentor-role">President (Commercial)</p>
+            </a>
+            <a href="mentors/prapon.html" class="mentor-item fade-in">
+                <p class="mentor-name">Papon Ratanachaikanont</p>
                 <p class="mentor-company">True Coffee</p>
-                <p class="mentor-role">Business Coach</p>
-            </div>
-            <div class="mentor-item fade-in">
+                <p class="mentor-role">President, Food Chain</p>
+            </a>
+            <a href="mentors/sangsuk.html" class="mentor-item fade-in">
                 <p class="mentor-name">Dr. Sangsuk Pittayanukul</p>
                 <p class="mentor-company">Smooth-E</p>
-                <p class="mentor-role">Business Coach</p>
-            </div>
+                <p class="mentor-role">CEO & Managing Director</p>
+            </a>
+            <a href="mentors/vasupon.html" class="mentor-item fade-in">
+                <p class="mentor-name">Vasupon Thankakan</p>
+                <p class="mentor-company">Microsoft Thailand</p>
+                <p class="mentor-role">Deputy Managing Director</p>
+            </a>
+            <a href="mentors/vichate.html" class="mentor-item fade-in">
+                <p class="mentor-name">Vichate Tantiwanich</p>
+                <p class="mentor-company">Asia Aviation</p>
+                <p class="mentor-role">Chairman of the Board</p>
+            </a>
+            <a href="mentors/kalaya.html" class="mentor-item fade-in">
+                <p class="mentor-name">Kalaya Kovidvisith</p>
+                <p class="mentor-company">FabCafe Bangkok</p>
+                <p class="mentor-role">Co-founder & MD</p>
+            </a>
+            <a href="mentors/kampanat.html" class="mentor-item fade-in">
+                <p class="mentor-name">Kampanat Vimolnoht</p>
+                <p class="mentor-company">KX Venture Capital</p>
+                <p class="mentor-role">Managing Director</p>
+            </a>
         </div>
 
         <div class="marquee" style="margin-top: 64px;">
             <div class="marquee-track">
                 <div class="marquee-content">
-                    <span class="marquee-item">SAHAPAT</span>
+                    <span class="marquee-item">SAHA GROUP</span>
                     <span class="marquee-item">TRUE</span>
                     <span class="marquee-item">SMOOTH-E</span>
-                    <span class="marquee-item">SIAM HEALTH</span>
-                    <span class="marquee-item">SAHAPAT</span>
-                    <span class="marquee-item">TRUE</span>
-                    <span class="marquee-item">SMOOTH-E</span>
-                    <span class="marquee-item">SIAM HEALTH</span>
+                    <span class="marquee-item">MICROSOFT</span>
+                    <span class="marquee-item">AIRASIA</span>
+                    <span class="marquee-item">FABCAFE</span>
+                    <span class="marquee-item">KX VENTURE</span>
+                    <span class="marquee-item">I.C.C.</span>
                 </div>
                 <div class="marquee-content">
-                    <span class="marquee-item">SAHAPAT</span>
+                    <span class="marquee-item">SAHA GROUP</span>
                     <span class="marquee-item">TRUE</span>
                     <span class="marquee-item">SMOOTH-E</span>
-                    <span class="marquee-item">SIAM HEALTH</span>
-                    <span class="marquee-item">SAHAPAT</span>
-                    <span class="marquee-item">TRUE</span>
-                    <span class="marquee-item">SMOOTH-E</span>
-                    <span class="marquee-item">SIAM HEALTH</span>
+                    <span class="marquee-item">MICROSOFT</span>
+                    <span class="marquee-item">AIRASIA</span>
+                    <span class="marquee-item">FABCAFE</span>
+                    <span class="marquee-item">KX VENTURE</span>
+                    <span class="marquee-item">I.C.C.</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TEACHING - White -->
-    <section id="teaching" class="section-light">
-        <div class="number-box fade-in shimmer">
-            <div class="big-number count-up" data-target="2">0</div>
-            <p class="number-label">Years in School</p>
-        </div>
-        <div class="teaching-content">
-            <p class="teaching-heading fade-in">Project-Based Learning</p>
-            <p class="teaching-body fade-in">
-                Learn by doing. Build real businesses.<br>
-                Graduate ready to work.
-            </p>
-            <ul class="feature-list fade-in" style="margin-top: 40px;">
-                <li><span class="dot"></span> Block Teaching: Focus on one subject at a time</li>
-                <li><span class="dot"></span> 3-year BBA, faster than traditional 4-year programs</li>
-                <li><span class="dot"></span> Real business cases, not textbooks</li>
-                <li><span class="dot"></span> Year 3: Go global, internship, or entrepreneur track</li>
-            </ul>
+    <!-- COMPETITION PARTNERS - White -->
+    <section id="partners" class="section-light">
+        <p class="caps fade-in" style="margin-bottom: 16px;">Our</p>
+        <h2 class="heading-lg fade-in">Competition Partners</h2>
+        <div class="line line-grow" style="margin-top: 32px;"></div>
+
+        <div class="partner-grid stagger">
+            <a href="partners/kasikorn.html" class="partner-card fade-in">
+                <p class="partner-name">Kasikorn Bank</p>
+                <p class="partner-type">Banking & Finance</p>
+            </a>
+            <a href="partners/stanford.html" class="partner-card fade-in">
+                <p class="partner-name">Stanford Thailand Research</p>
+                <p class="partner-type">Research & Innovation</p>
+            </a>
+            <a href="partners/thaihealth.html" class="partner-card fade-in">
+                <p class="partner-name">Thai Health Promotion</p>
+                <p class="partner-type">Health & Wellness</p>
+            </a>
+            <a href="partners/healthtechx.html" class="partner-card fade-in">
+                <p class="partner-name">HealthTechX</p>
+                <p class="partner-type">HealthTech Innovation</p>
+            </a>
+            <a href="partners/tat.html" class="partner-card fade-in">
+                <p class="partner-name">Tourism Authority Thailand</p>
+                <p class="partner-type">Tourism & Hospitality</p>
+            </a>
+            <a href="partners/depa.html" class="partner-card fade-in">
+                <p class="partner-name">Digital Economy Promotion Agency</p>
+                <p class="partner-type">Digital Innovation</p>
+            </a>
         </div>
     </section>
 
-    <!-- CTA - Black -->
-    <section id="cta" class="section-dark">
-        <p class="cta-title fade-in">Plan Your<br>Own Future</p>
-        <div class="line line-grow" style="margin-bottom: 48px;"></div>
-        <a href="https://ddi.au.edu" class="btn magnetic-btn pulse-glow fade-in">Apply Now</a>
+    <!-- CTA -->
+    <section id="cta" class="section-light">
+        <p class="cta-title fade-in" style="color: var(--black);">Plan Your<br>Own Future</p>
+        <div class="line line-grow" style="margin-bottom: 48px; background: var(--black);"></div>
+        <a href="https://ddi.au.edu" class="btn magnetic-btn fade-in" style="color: var(--black); border-color: var(--black);">Apply Now</a>
         <div class="contact-section fade-in">
-            <p class="contact-label">Contact</p>
-            <p class="contact-info">
+            <p class="contact-label" style="color: var(--black);">Contact</p>
+            <p class="contact-info" style="color: var(--black);">
                 LINE @ddiabac<br>
-                <a href="https://ddi.au.edu">ddi.au.edu</a>
+                <a href="https://ddi.au.edu" style="color: var(--black);">ddi.au.edu</a>
             </p>
         </div>
     </section>
