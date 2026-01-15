@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idea Wall | DDI - Design & Digital Innovation</title>
+    <title>Student Life | DDI - Design & Digital Innovation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +20,6 @@
         }
 
         html {
-            scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
         }
 
@@ -208,11 +207,11 @@
         }
 
         .nav-mobile .nav-link {
-            font-size: 24px;
-            font-weight: 600;
             opacity: 0;
             transform: translateX(20px);
             transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+            font-size: 24px;
+            font-weight: 600;
         }
 
         .nav-mobile.active .nav-link {
@@ -225,6 +224,7 @@
         .nav-mobile .nav-link:nth-child(3) { transition-delay: 0.15s; }
         .nav-mobile .nav-link:nth-child(4) { transition-delay: 0.2s; }
         .nav-mobile .nav-link:nth-child(5) { transition-delay: 0.25s; }
+        .nav-mobile .nav-link:nth-child(6) { transition-delay: 0.3s; }
 
         .nav-mobile .nav-cta {
             margin-top: 24px;
@@ -234,8 +234,8 @@
 
         /* Touch feedback */
         .btn:active, .nav-cta:active { transform: scale(0.97) !important; transition: transform 0.1s ease !important; }
+        .amenity-card:active, .feature-card:active { transform: scale(0.98) !important; transition: transform 0.1s ease !important; }
         .nav-link:active { opacity: 0.5; }
-        .step-card:active { transform: scale(0.98) !important; }
 
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
@@ -277,7 +277,7 @@
 
         /* TYPOGRAPHY */
         .page-title {
-            font-size: clamp(48px, 14vw, 140px);
+            font-size: clamp(48px, 12vw, 120px);
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 0.95;
@@ -285,7 +285,7 @@
         }
 
         .section-title {
-            font-size: clamp(32px, 8vw, 64px);
+            font-size: clamp(36px, 8vw, 72px);
             font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
@@ -297,7 +297,7 @@
             font-weight: 500;
             opacity: 0.8;
             text-align: center;
-            max-width: 500px;
+            max-width: 600px;
         }
 
         .caps {
@@ -310,8 +310,8 @@
         /* ANIMATIONS */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .fade-in.visible {
@@ -324,68 +324,146 @@
         .stagger > *:nth-child(3) { transition-delay: 0.15s; }
         .stagger > *:nth-child(4) { transition-delay: 0.2s; }
 
-        /* STEPS */
-        .steps-grid {
+        /* AMENITY CARDS */
+        .amenity-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            max-width: 800px;
-            margin-top: 48px;
+            max-width: 900px;
+            margin-top: 64px;
         }
 
-        .step-card {
+        .amenity-card {
             border: 2px solid currentColor;
-            padding: 32px 24px;
+            padding: 40px 32px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            background: transparent;
         }
 
-        .step-card:hover {
-            background: var(--black);
-            color: var(--white);
-            transform: translateY(-4px);
+        .amenity-card:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-8px);
         }
 
-        .step-number {
+        .amenity-icon {
             font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .amenity-title {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .amenity-desc {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        /* FEATURE CARDS */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin-top: 64px;
+        }
+
+        .feature-card {
+            padding: 48px 32px;
+            border: 3px solid currentColor;
+            text-align: center;
+        }
+
+        .feature-number {
+            font-size: 64px;
             font-weight: 700;
             line-height: 1;
-            margin-bottom: 16px;
             opacity: 0.3;
         }
 
-        .step-text {
-            font-size: 14px;
-            font-weight: 600;
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
+            margin: 16px 0;
         }
 
-        /* DETAILS */
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px 64px;
+        .feature-desc {
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        /* LOCATION */
+        .location-box {
+            max-width: 800px;
+            padding: 48px;
+            border: 2px solid currentColor;
+            text-align: center;
             margin-top: 48px;
+        }
+
+        .location-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 16px;
+        }
+
+        .location-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .location-desc {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        /* LIVING OPTIONS */
+        .living-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin-top: 64px;
+        }
+
+        .living-card {
+            padding: 32px 24px;
+            border: 2px solid currentColor;
             text-align: center;
         }
 
-        .detail-item {
-            padding: 16px;
+        .living-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
         }
 
-        .detail-label {
-            font-size: 11px;
+        .living-title {
+            font-size: 16px;
             font-weight: 700;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            opacity: 0.5;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
-        .detail-value {
-            font-size: 24px;
-            font-weight: 700;
+        .living-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.7;
         }
 
         /* BUTTONS */
@@ -447,18 +525,21 @@
         @media (max-width: 768px) {
             section {
                 padding: 80px 20px;
-                min-height: auto;
             }
-            .steps-grid {
+            .amenity-grid {
                 grid-template-columns: 1fr;
-                max-width: 280px;
+                max-width: 400px;
             }
-            .details-grid {
+            .feature-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
+                max-width: 400px;
             }
-            .subtitle {
-                font-size: 16px;
+            .living-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+            .feature-number {
+                font-size: 48px;
             }
         }
     </style>
@@ -472,7 +553,7 @@
                 <a href="program.html" class="nav-link">Program</a>
                 <a href="sandbox.html" class="nav-link">Sandbox</a>
                 <a href="global.html" class="nav-link">Global</a>
-                <a href="student-life.html" class="nav-link">Life</a>
+                <a href="student-life.html" class="nav-link active">Life</a>
                 <a href="faq.html" class="nav-link">FAQ</a>
             </nav>
             <a href="apply.html" class="nav-cta">Apply Now</a>
@@ -489,67 +570,159 @@
         <a href="program.html" class="nav-link">Program</a>
         <a href="sandbox.html" class="nav-link">Sandbox</a>
         <a href="global.html" class="nav-link">Global</a>
-                <a href="student-life.html" class="nav-link">Life</a>
-                <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="student-life.html" class="nav-link">Life</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
         <a href="apply.html" class="nav-cta">Apply Now</a>
     </div>
 
     <!-- HERO -->
     <section class="section-dark">
-        <p class="caps fade-in">DDI Workshop</p>
-        <h1 class="page-title fade-in" style="margin: 24px 0;">IDEA WALL</h1>
-        <p class="subtitle fade-in">Bring a startup idea. Stick it on the wall. Hang out.</p>
-        <a href="https://line.me/R/ti/p/@ddiabac" class="btn fade-in" style="margin-top: 48px;">Register on LINE</a>
+        <p class="caps fade-in">Experience DDI</p>
+        <h1 class="page-title fade-in" style="margin: 24px 0;">STUDENT LIFE</h1>
+        <p class="subtitle fade-in">Learn by doing. Build real things. Live your best life in Bangkok.</p>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="section-light">
-        <p class="caps fade-in">How It Works</p>
-        <h2 class="section-title fade-in" style="margin: 16px 0;">SUPER SIMPLE</h2>
-
-        <div class="steps-grid stagger">
-            <div class="step-card fade-in">
-                <div class="step-number">1</div>
-                <p class="step-text">Write your idea on a sticky note</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">2</div>
-                <p class="step-text">Stick it on the wall</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">3</div>
-                <p class="step-text">Chill, vote, meet people</p>
+    <!-- CAMPUS TOUR VIDEO -->
+    <section style="background: var(--white); padding: 80px 24px; text-align: center;">
+        <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.4; margin-bottom: 16px;">Take a Look</p>
+        <h2 style="font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 48px;">CAMPUS TOUR</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/eYzCDkw8IMc" title="AU Campus Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
-
-        <p class="subtitle fade-in" style="margin-top: 48px; opacity: 0.6; font-size: 16px;">Best idea wins a prize. That's it.</p>
     </section>
 
-    <!-- DETAILS -->
+    <!-- LOCATION -->
+    <section class="section-light" style="min-height: auto; padding: 100px 24px;">
+        <p class="caps fade-in">Location</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">BANGKOK</h2>
+        <div class="location-box fade-in">
+            <p class="location-title">Assumption University</p>
+            <p class="location-name">Suvarnabhumi Campus</p>
+            <p class="location-desc">Located near Bangkok's international airport, AU's modern campus gives you easy access to Thailand's vibrant capital. World-class facilities in a city known for incredible food, culture, and opportunity.</p>
+        </div>
+    </section>
+
+    <!-- DDI DIFFERENCE -->
     <section class="section-dark">
-        <p class="caps fade-in">Event Details</p>
-        <h2 class="section-title fade-in" style="margin: 16px 0;">WHEN & WHERE</h2>
+        <p class="caps fade-in">The DDI Way</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">NO EXAMS</h2>
+        <p class="subtitle fade-in" style="margin-top: 24px;">Forget memorizing for tests. At DDI, you prove yourself by building real things.</p>
 
-        <div class="details-grid stagger">
-            <div class="detail-item fade-in">
-                <p class="detail-label">Date</p>
-                <p class="detail-value">TBD</p>
+        <div class="feature-grid stagger">
+            <div class="feature-card fade-in">
+                <div class="feature-number">01</div>
+                <h3 class="feature-title">Project-Based</h3>
+                <p class="feature-desc">Every course ends with a project, not an exam. Build apps, launch startups, create campaigns. Your portfolio is your proof.</p>
             </div>
-            <div class="detail-item fade-in">
-                <p class="detail-label">Time</p>
-                <p class="detail-value">TBD</p>
+            <div class="feature-card fade-in">
+                <div class="feature-number">02</div>
+                <h3 class="feature-title">Real Companies</h3>
+                <p class="feature-desc">Work with actual businesses on real problems. Get mentored by industry leaders from Microsoft, Kasikorn Bank, and more.</p>
             </div>
-            <div class="detail-item fade-in">
-                <p class="detail-label">Location</p>
-                <p class="detail-value">TBD</p>
+            <div class="feature-card fade-in">
+                <div class="feature-number">03</div>
+                <h3 class="feature-title">Block Teaching</h3>
+                <p class="feature-desc">Focus on one subject at a time for 3-4 weeks. Go deep, then move on. No juggling five classes at once.</p>
             </div>
-            <div class="detail-item fade-in">
-                <p class="detail-label">Price</p>
-                <p class="detail-value">FREE</p>
+            <div class="feature-card fade-in">
+                <div class="feature-number">04</div>
+                <h3 class="feature-title">Ship It</h3>
+                <p class="feature-desc">By Year 2, you'll build and launch your own product in The Sandbox. Not a simulation. Real users, real feedback.</p>
             </div>
         </div>
+    </section>
 
-        <a href="https://line.me/R/ti/p/@ddiabac" class="btn fade-in" style="margin-top: 64px;">Register on LINE</a>
+    <!-- CAMPUS AMENITIES -->
+    <section class="section-light">
+        <p class="caps fade-in">On Campus</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">AMENITIES</h2>
+
+        <div class="amenity-grid stagger">
+            <div class="amenity-card fade-in">
+                <div class="amenity-icon">&#128187;</div>
+                <h3 class="amenity-title">Creative Labs</h3>
+                <p class="amenity-desc">Co-working spaces, design studios, and tech labs equipped for building digital products and prototypes.</p>
+            </div>
+            <div class="amenity-card fade-in">
+                <div class="amenity-icon">&#128218;</div>
+                <h3 class="amenity-title">Library</h3>
+                <p class="amenity-desc">Modern study spaces, private rooms for team work, and resources to support your research and projects.</p>
+            </div>
+            <div class="amenity-card fade-in">
+                <div class="amenity-icon">&#127939;</div>
+                <h3 class="amenity-title">Sports & Gym</h3>
+                <p class="amenity-desc">Full fitness center, swimming pool, basketball courts, and facilities to keep you active and healthy.</p>
+            </div>
+            <div class="amenity-card fade-in">
+                <div class="amenity-icon">&#127828;</div>
+                <h3 class="amenity-title">Food & Social</h3>
+                <p class="amenity-desc">Multiple cafeterias, coffee shops, and hangout spots. Great food at student-friendly prices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIFE BALANCE -->
+    <section class="section-dark">
+        <p class="caps fade-in">Work Hard, Live Well</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">BALANCE</h2>
+        <p class="subtitle fade-in" style="margin-top: 24px;">DDI is intense but designed for balance. Block teaching means focused work, then real breaks.</p>
+
+        <div class="feature-grid stagger" style="margin-top: 48px;">
+            <div class="feature-card fade-in">
+                <div class="feature-number">&#9201;</div>
+                <h3 class="feature-title">Flexible Schedule</h3>
+                <p class="feature-desc">Block teaching gives you breathing room. When a block ends, you have time for your own projects, hobbies, or rest.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-number">&#127961;</div>
+                <h3 class="feature-title">Bangkok Life</h3>
+                <p class="feature-desc">Street food paradise, rooftop bars, art galleries, night markets. One of Asia's most exciting cities is your backyard.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-number">&#128640;</div>
+                <h3 class="feature-title">Side Projects</h3>
+                <p class="feature-desc">Many DDI students run freelance work, startups, or passion projects alongside their studies. The schedule allows it.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-number">&#127758;</div>
+                <h3 class="feature-title">Travel Easy</h3>
+                <p class="feature-desc">Bangkok is a hub to all of Southeast Asia. Bali, Vietnam, Singapore—cheap flights and weekend adventures await.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVING OPTIONS -->
+    <section class="section-light">
+        <p class="caps fade-in">Where to Live</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">HOUSING</h2>
+        <p class="subtitle fade-in" style="margin-top: 16px; color: var(--black);">Options for every budget and lifestyle.</p>
+
+        <div class="living-grid stagger">
+            <div class="living-card fade-in">
+                <div class="living-icon">&#127970;</div>
+                <h3 class="living-title">On-Campus Dorms</h3>
+                <p class="living-desc">Convenient, affordable, and right where the action is. Fully furnished rooms with amenities included.</p>
+            </div>
+            <div class="living-card fade-in">
+                <div class="living-icon">&#127967;</div>
+                <h3 class="living-title">Nearby Apartments</h3>
+                <p class="living-desc">Modern condos and apartments within minutes of campus. More space and independence.</p>
+            </div>
+            <div class="living-card fade-in">
+                <div class="living-icon">&#128652;</div>
+                <h3 class="living-title">Easy Transport</h3>
+                <p class="living-desc">Campus shuttles, affordable taxis, and ride apps make getting around Bangkok simple.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-dark" style="min-height: auto; padding: 100px 24px;">
+        <p class="caps fade-in">Ready for This?</p>
+        <h2 class="section-title fade-in" style="margin: 24px 0;">JOIN DDI</h2>
+        <a href="apply.html" class="btn fade-in">Apply Now</a>
     </section>
 
     <!-- FOOTER -->
@@ -587,14 +760,14 @@
         navHamburger.addEventListener('click', () => {
             navHamburger.classList.toggle('active');
             navMobile.classList.toggle('active');
-            document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+            document.body.classList.toggle('menu-open');
         });
 
         navMobile.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navHamburger.classList.remove('active');
                 navMobile.classList.remove('active');
-                document.body.style.overflow = '';
+                document.body.classList.remove('menu-open');
             });
         });
     </script>
