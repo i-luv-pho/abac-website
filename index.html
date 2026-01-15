@@ -42,6 +42,8 @@
         html {
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
         }
 
         body {
@@ -52,6 +54,8 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
+            padding-top: 72px;
+            animation: pageEntrance 1.2s ease-out;
         }
 
         /* v14: Prevent scroll when mobile menu is open */
@@ -1427,10 +1431,6 @@
            ============================================ */
 
         /* 1. PAGE ENTRANCE ANIMATION */
-        body {
-            animation: pageEntrance 1.2s ease-out;
-        }
-
         @keyframes pageEntrance {
             from {
                 opacity: 0;
@@ -1793,11 +1793,6 @@
         .nav-mobile.active .nav-cta {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* Add padding to body for fixed header */
-        body {
-            padding-top: 72px;
         }
 
         @media (max-width: 767px) {
@@ -4748,7 +4743,7 @@
                 <a href="faq.html" class="nav-link">FAQ</a>
             </nav>
 
-            <a href="apply.html" class="nav-cta">Apply Now →</a>
+            <a href="apply.html" class="nav-cta">Apply Now</a>
 
             <button class="nav-hamburger" aria-label="Menu">
                 <span></span>
@@ -4763,7 +4758,7 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="sandbox.html" class="nav-link">Sandbox</a>
         <a href="faq.html" class="nav-link">FAQ</a>
-        <a href="apply.html" class="nav-cta">Apply Now →</a>
+        <a href="apply.html" class="nav-cta">Apply Now</a>
     </div>
 
     <!-- HERO - Black (Vanta.js NET background) -->
