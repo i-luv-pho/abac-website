@@ -432,40 +432,6 @@
             opacity: 0.8;
         }
 
-        /* LIVING OPTIONS */
-        .living-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 900px;
-            margin-top: 64px;
-        }
-
-        .living-card {
-            padding: 32px 24px;
-            border: 2px solid currentColor;
-            text-align: center;
-        }
-
-        .living-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
-        }
-
-        .living-title {
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .living-desc {
-            font-size: 14px;
-            line-height: 1.6;
-            opacity: 0.7;
-        }
-
         /* BUTTONS */
         .btn {
             display: inline-block;
@@ -534,10 +500,6 @@
                 grid-template-columns: 1fr;
                 max-width: 400px;
             }
-            .living-grid {
-                grid-template-columns: 1fr;
-                max-width: 300px;
-            }
             .feature-number {
                 font-size: 48px;
             }
@@ -579,7 +541,7 @@
     <section class="section-dark">
         <p class="caps fade-in">Experience DDI</p>
         <h1 class="page-title fade-in" style="margin: 24px 0;">STUDENT LIFE</h1>
-        <p class="subtitle fade-in">Learn by doing. Build real things. Live your best life in Bangkok.</p>
+        <p class="subtitle fade-in">Project-based learning in the heart of Bangkok.</p>
     </section>
 
     <!-- CAMPUS TOUR VIDEO -->
@@ -596,12 +558,16 @@
     <!-- LOCATION -->
     <section class="section-light" style="min-height: auto; padding: 100px 24px;">
         <p class="caps fade-in">Location</p>
-        <h2 class="section-title fade-in" style="margin: 16px 0;">BANGKOK</h2>
-        <div class="location-box fade-in">
-            <p class="location-title">Assumption University</p>
-            <p class="location-name">Suvarnabhumi Campus</p>
-            <p class="location-desc">Located near Bangkok's international airport, AU's modern campus gives you easy access to Thailand's vibrant capital. World-class facilities in a city known for incredible food, culture, and opportunity.</p>
+        <h2 class="section-title fade-in" style="margin: 16px 0;">FIND US</h2>
+        <p class="subtitle fade-in" style="margin-top: 16px; color: var(--black);">Assumption University, Suvarnabhumi Campus</p>
+
+        <div style="max-width: 900px; width: 100%; margin-top: 48px;" class="fade-in">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 2px solid var(--black);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.8095036744776!2d100.83296731534767!3d13.612015990460818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d43b4f9e5c5a5%3A0x81b6f0c7d1e7c8b0!2sAssumption%20University%20of%20Thailand!5e0!3m2!1sen!2sth!4v1705000000000!5m2!1sen!2sth" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
+
+        <p class="fade-in" style="margin-top: 24px; font-size: 14px; opacity: 0.6;">88 Moo 8, Bang Na-Trad Road Km. 26, Samut Prakan 10540</p>
     </section>
 
     <!-- DDI DIFFERENCE -->
@@ -641,24 +607,24 @@
 
         <div class="amenity-grid stagger">
             <div class="amenity-card fade-in">
-                <div class="amenity-icon">&#128187;</div>
+                <div class="amenity-icon">01</div>
                 <h3 class="amenity-title">Creative Labs</h3>
                 <p class="amenity-desc">Co-working spaces, design studios, and tech labs equipped for building digital products and prototypes.</p>
             </div>
             <div class="amenity-card fade-in">
-                <div class="amenity-icon">&#128218;</div>
+                <div class="amenity-icon">02</div>
                 <h3 class="amenity-title">Library</h3>
                 <p class="amenity-desc">Modern study spaces, private rooms for team work, and resources to support your research and projects.</p>
             </div>
             <div class="amenity-card fade-in">
-                <div class="amenity-icon">&#127939;</div>
+                <div class="amenity-icon">03</div>
                 <h3 class="amenity-title">Sports & Gym</h3>
-                <p class="amenity-desc">Full fitness center, swimming pool, basketball courts, and facilities to keep you active and healthy.</p>
+                <p class="amenity-desc">Fitness center, swimming pool, basketball courts, and facilities to stay active.</p>
             </div>
             <div class="amenity-card fade-in">
-                <div class="amenity-icon">&#127828;</div>
+                <div class="amenity-icon">04</div>
                 <h3 class="amenity-title">Food & Social</h3>
-                <p class="amenity-desc">Multiple cafeterias, coffee shops, and hangout spots. Great food at student-friendly prices.</p>
+                <p class="amenity-desc">Multiple cafeterias, coffee shops, and common areas at student-friendly prices.</p>
             </div>
         </div>
     </section>
@@ -671,49 +637,24 @@
 
         <div class="feature-grid stagger" style="margin-top: 48px;">
             <div class="feature-card fade-in">
-                <div class="feature-number">&#9201;</div>
+                <div class="feature-number">01</div>
                 <h3 class="feature-title">Flexible Schedule</h3>
                 <p class="feature-desc">Block teaching gives you breathing room. When a block ends, you have time for your own projects, hobbies, or rest.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-number">&#127961;</div>
+                <div class="feature-number">02</div>
                 <h3 class="feature-title">Bangkok Life</h3>
-                <p class="feature-desc">Street food paradise, rooftop bars, art galleries, night markets. One of Asia's most exciting cities is your backyard.</p>
+                <p class="feature-desc">Street food, art galleries, night markets. One of Southeast Asia's most dynamic cities is right outside campus.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-number">&#128640;</div>
+                <div class="feature-number">03</div>
                 <h3 class="feature-title">Side Projects</h3>
                 <p class="feature-desc">Many DDI students run freelance work, startups, or passion projects alongside their studies. The schedule allows it.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-number">&#127758;</div>
-                <h3 class="feature-title">Travel Easy</h3>
-                <p class="feature-desc">Bangkok is a hub to all of Southeast Asia. Bali, Vietnam, Singapore—cheap flights and weekend adventures await.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- LIVING OPTIONS -->
-    <section class="section-light">
-        <p class="caps fade-in">Where to Live</p>
-        <h2 class="section-title fade-in" style="margin: 16px 0;">HOUSING</h2>
-        <p class="subtitle fade-in" style="margin-top: 16px; color: var(--black);">Options for every budget and lifestyle.</p>
-
-        <div class="living-grid stagger">
-            <div class="living-card fade-in">
-                <div class="living-icon">&#127970;</div>
-                <h3 class="living-title">On-Campus Dorms</h3>
-                <p class="living-desc">Convenient, affordable, and right where the action is. Fully furnished rooms with amenities included.</p>
-            </div>
-            <div class="living-card fade-in">
-                <div class="living-icon">&#127967;</div>
-                <h3 class="living-title">Nearby Apartments</h3>
-                <p class="living-desc">Modern condos and apartments within minutes of campus. More space and independence.</p>
-            </div>
-            <div class="living-card fade-in">
-                <div class="living-icon">&#128652;</div>
-                <h3 class="living-title">Easy Transport</h3>
-                <p class="living-desc">Campus shuttles, affordable taxis, and ride apps make getting around Bangkok simple.</p>
+                <div class="feature-number">04</div>
+                <h3 class="feature-title">Travel Access</h3>
+                <p class="feature-desc">Bangkok is a hub to all of Southeast Asia. Easy access to regional destinations during breaks.</p>
             </div>
         </div>
     </section>
