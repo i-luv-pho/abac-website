@@ -1890,18 +1890,40 @@
                 padding: 20px 16px;
             }
 
+            /* MOBILE SIMPLIFICATION - Hide country flags section */
             .country-grid {
-                grid-template-columns: 1fr;
-                max-width: 300px;
-                gap: 16px;
+                display: none;
             }
 
-            .country-card {
-                padding: 20px 16px;
+            /* Hide "Where Our Mentors Come From" title */
+            .social-proof-title {
+                display: none;
             }
 
-            .country-flag {
-                font-size: 32px;
+            /* Hide marquee on mobile */
+            .marquee {
+                display: none;
+            }
+
+            /* Disable floating animations on mobile */
+            .keyword-animated {
+                animation: none !important;
+            }
+
+            /* Hide process arrows on mobile */
+            .process-arrow {
+                display: none;
+            }
+
+            /* Simplify partner grid - show fewer */
+            .partner-grid {
+                display: none;
+            }
+
+            /* Disable pulse glow on mobile */
+            .pulse-glow {
+                animation: none !important;
+                box-shadow: none !important;
             }
 
             .deco-line {
