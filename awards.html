@@ -37,8 +37,10 @@
         .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.4; margin-bottom: 16px; }
         .section-title { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 48px; }
 
-        .award-card { border: 3px solid var(--black); padding: 48px; margin-bottom: 32px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: start; transition: all 0.3s ease; }
+        .award-card { border: 3px solid var(--black); padding: 48px; margin-bottom: 32px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: start; transition: all 0.3s ease; position: relative; }
+        .award-card::after { content: '→'; position: absolute; bottom: 16px; right: 16px; font-size: 16px; opacity: 0.2; transition: opacity 0.2s ease; }
         .award-card:hover { background: var(--black); color: var(--white); transform: translateY(-4px); }
+        .award-card:hover::after { opacity: 0.6; }
         .award-team { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5; margin-bottom: 8px; }
         .award-title { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
         .award-desc { font-size: 16px; line-height: 1.7; opacity: 0.8; margin-bottom: 16px; }
@@ -137,7 +139,7 @@
         </a>
 
         <!-- Starters / iReadCustomer -->
-        <div class="award-card">
+        <a href="success/starters.html" class="award-card" style="text-decoration: none; color: inherit;">
             <div class="award-content">
                 <p class="award-team">DDI Batch 2</p>
                 <h3 class="award-title">Team Starters - iReadCustomer</h3>
@@ -152,10 +154,10 @@
                 <p class="award-number">1.5M</p>
                 <p class="award-currency">THB Raised</p>
             </div>
-        </div>
+        </a>
 
         <!-- DOTS -->
-        <div class="award-card">
+        <a href="success/dots.html" class="award-card" style="text-decoration: none; color: inherit;">
             <div class="award-content">
                 <p class="award-team">DDI Batch 2</p>
                 <h3 class="award-title">DOTSX Enterprise</h3>
@@ -170,10 +172,10 @@
                 <p class="award-number">500K</p>
                 <p class="award-currency">THB Funding</p>
             </div>
-        </div>
+        </a>
 
         <!-- Zensation -->
-        <div class="award-card">
+        <a href="success/zensation.html" class="award-card" style="text-decoration: none; color: inherit;">
             <div class="award-content">
                 <p class="award-team">DDI Students</p>
                 <h3 class="award-title">Team Zensation</h3>
@@ -188,10 +190,10 @@
                 <p class="award-number">1st</p>
                 <p class="award-currency">Place Winner</p>
             </div>
-        </div>
+        </a>
 
         <!-- MealMate -->
-        <div class="award-card">
+        <a href="success/mealmate.html" class="award-card" style="text-decoration: none; color: inherit;">
             <div class="award-content">
                 <p class="award-team">DDI Year 2</p>
                 <h3 class="award-title">Team MealMate</h3>
@@ -206,7 +208,7 @@
                 <p class="award-number">100K</p>
                 <p class="award-currency">THB Won</p>
             </div>
-        </div>
+        </a>
     </section>
 
     <section class="timeline-section">

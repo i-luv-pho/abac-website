@@ -557,7 +557,7 @@
         }
 
         /* Mobile touch targets - 44px minimum */
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .nav-link {
                 padding: 12px 8px;
                 min-height: 44px;
@@ -728,7 +728,7 @@
             margin-top: 8px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .stats-block {
                 gap: 16px;
             }
@@ -783,7 +783,7 @@
             opacity: 1;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .company-logos {
                 gap: 20px 32px;
             }
@@ -824,7 +824,7 @@
             opacity: 0.7;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .hero-differentiators {
                 font-size: 11px;
                 letter-spacing: 0.1em;
@@ -1193,10 +1193,25 @@
             text-decoration: none;
             color: inherit;
             display: block;
+            position: relative;
+        }
+
+        .mentor-item::after {
+            content: '→';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-size: 14px;
+            opacity: 0.3;
+            transition: opacity 0.2s ease;
         }
 
         .mentor-item:hover {
             transform: translateY(-8px);
+        }
+
+        .mentor-item:hover::after {
+            opacity: 0.7;
         }
 
         .mentor-name {
@@ -1241,6 +1256,21 @@
             text-decoration: none;
             color: inherit;
             display: block;
+            position: relative;
+        }
+
+        .partner-card::after {
+            content: '→';
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            font-size: 14px;
+            opacity: 0.25;
+            transition: opacity 0.2s ease;
+        }
+
+        .partner-card:hover::after {
+            opacity: 0.6;
         }
 
         .partner-card:hover {
@@ -1480,7 +1510,7 @@
         }
 
         /* v14: Disable shimmer on mobile - saves battery */
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .shimmer::after,
             .country-card::before {
                 animation: none !important;
@@ -1541,7 +1571,7 @@
         }
 
         /* Mobile: always show card content */
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .card-reveal {
                 max-height: none;
                 opacity: 1;
@@ -1745,7 +1775,7 @@
             padding-top: 72px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .nav-menu {
                 display: none;
             }
@@ -1898,13 +1928,15 @@
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out;
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease;
             background: var(--black);
             color: var(--white);
         }
 
         .accordion-content.open {
             max-height: 2000px;
+            opacity: 1;
         }
 
         .accordion-inner {
@@ -1940,7 +1972,7 @@
         }
 
         /* Show accordion on mobile, hide on desktop */
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .mobile-accordion-container {
                 display: block;
             }
@@ -1958,7 +1990,7 @@
         }
 
         /* RESPONSIVE - MOBILE (max-width: 768px) */
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             section {
                 padding: 64px 20px;
                 min-height: auto;
@@ -4190,7 +4222,7 @@
             margin-top: 16px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .modal-content {
                 padding: 32px 24px;
             }
@@ -4318,31 +4350,60 @@
             </div>
         </div>
 
-        <!-- OUR MENTORS -->
-        <div class="accordion-item">
-            <div class="accordion-header">
-                <span class="accordion-title">Our Mentors</span>
-                <span class="accordion-icon">+</span>
+        <!-- MENTORS - STATIC SECTION (always visible) -->
+        <div class="mobile-static-section" style="background: var(--black); padding: 32px 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <h3 style="color: white; font-size: 14px; font-weight: 700; letter-spacing: 0.15em; margin-bottom: 20px;">OUR MENTORS</h3>
+            <p style="color: rgba(255,255,255,0.7); font-size: 13px; margin-bottom: 20px;">Learn from founders and executives at leading companies</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <a href="mentors/vichate.html" style="background: rgba(255,255,255,0.05); padding: 16px 12px; text-align: center; text-decoration: none; color: white; position: relative;">
+                    <div style="font-size: 13px; font-weight: 600;">Vichate</div>
+                    <div style="font-size: 10px; opacity: 0.6; margin-top: 4px;">Ex-Google</div>
+                    <span style="position: absolute; bottom: 8px; right: 10px; font-size: 12px; opacity: 0.4;">→</span>
+                </a>
+                <a href="mentors/kalaya.html" style="background: rgba(255,255,255,0.05); padding: 16px 12px; text-align: center; text-decoration: none; color: white; position: relative;">
+                    <div style="font-size: 13px; font-weight: 600;">Kalaya</div>
+                    <div style="font-size: 10px; opacity: 0.6; margin-top: 4px;">Ex-Meta</div>
+                    <span style="position: absolute; bottom: 8px; right: 10px; font-size: 12px; opacity: 0.4;">→</span>
+                </a>
+                <a href="mentors/kampanat.html" style="background: rgba(255,255,255,0.05); padding: 16px 12px; text-align: center; text-decoration: none; color: white; position: relative;">
+                    <div style="font-size: 13px; font-weight: 600;">Kampanat</div>
+                    <div style="font-size: 10px; opacity: 0.6; margin-top: 4px;">Entrepreneur</div>
+                    <span style="position: absolute; bottom: 8px; right: 10px; font-size: 12px; opacity: 0.4;">→</span>
+                </a>
+                <a href="mentors/surat.html" style="background: rgba(255,255,255,0.05); padding: 16px 12px; text-align: center; text-decoration: none; color: white; position: relative;">
+                    <div style="font-size: 13px; font-weight: 600;">Surat</div>
+                    <div style="font-size: 10px; opacity: 0.6; margin-top: 4px;">Tech Lead</div>
+                    <span style="position: absolute; bottom: 8px; right: 10px; font-size: 12px; opacity: 0.4;">→</span>
+                </a>
             </div>
-            <div class="accordion-content">
-                <div class="accordion-inner">
-                    <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px;">Learn from founders and executives at leading companies:</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                        <div style="background: rgba(255,255,255,0.05); padding: 14px; text-align: center;">
-                            <div style="font-size: 12px; font-weight: 600;">Google</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); padding: 14px; text-align: center;">
-                            <div style="font-size: 12px; font-weight: 600;">Meta</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); padding: 14px; text-align: center;">
-                            <div style="font-size: 12px; font-weight: 600;">Apple</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); padding: 14px; text-align: center;">
-                            <div style="font-size: 12px; font-weight: 600;">LINE</div>
-                        </div>
-                    </div>
-                    <a href="mentors.html" style="display: block; margin-top: 20px; color: white; font-size: 12px; letter-spacing: 0.1em;">VIEW ALL MENTORS →</a>
-                </div>
+            <a href="mentors.html" style="display: block; margin-top: 16px; color: rgba(255,255,255,0.6); font-size: 11px; letter-spacing: 0.1em; text-decoration: none;">VIEW ALL 9 MENTORS →</a>
+        </div>
+
+        <!-- FACULTY - STATIC SECTION (always visible) -->
+        <div class="mobile-static-section" style="background: var(--white); padding: 32px 20px; border-top: 1px solid rgba(0,0,0,0.1);">
+            <h3 style="color: black; font-size: 14px; font-weight: 700; letter-spacing: 0.15em; margin-bottom: 20px;">OUR FACULTY</h3>
+            <p style="color: rgba(0,0,0,0.6); font-size: 13px; margin-bottom: 20px;">Industry practitioners who teach from experience</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <a href="faculty/natamon.html" style="background: rgba(0,0,0,0.03); padding: 16px 12px; text-align: center; text-decoration: none; color: black; position: relative;">
+                    <div style="font-size: 13px; font-weight: 600;">Natamon</div>
+                    <div style="font-size: 10px; opacity: 0.6; margin-top: 4px;">Program Director</div>
+                    <span style="position: absolute; bottom: 8px; right: 10px; font-size: 12px; opacity: 0.3;">→</span>
+                </a>
+                <a href="faculty/walee.html" style="background: rgba(0,0,0,0.03); padding: 16px 12px; text-align: center; text-decoration: none; color: black; position: relative;">
+                    <div style="font-size: 13px; font-weight: 600;">Walee</div>
+                    <div style="font-size: 10px; opacity: 0.6; margin-top: 4px;">Design Lead</div>
+                    <span style="position: absolute; bottom: 8px; right: 10px; font-size: 12px; opacity: 0.3;">→</span>
+                </a>
+                <a href="faculty/kittipong.html" style="background: rgba(0,0,0,0.03); padding: 16px 12px; text-align: center; text-decoration: none; color: black; position: relative;">
+                    <div style="font-size: 13px; font-weight: 600;">Kittipong</div>
+                    <div style="font-size: 10px; opacity: 0.6; margin-top: 4px;">Tech Faculty</div>
+                    <span style="position: absolute; bottom: 8px; right: 10px; font-size: 12px; opacity: 0.3;">→</span>
+                </a>
+                <a href="faculty/songsak.html" style="background: rgba(0,0,0,0.03); padding: 16px 12px; text-align: center; text-decoration: none; color: black; position: relative;">
+                    <div style="font-size: 13px; font-weight: 600;">Songsak</div>
+                    <div style="font-size: 10px; opacity: 0.6; margin-top: 4px;">Business Faculty</div>
+                    <span style="position: absolute; bottom: 8px; right: 10px; font-size: 12px; opacity: 0.3;">→</span>
+                </a>
             </div>
         </div>
 

@@ -598,12 +598,30 @@
             padding: 32px 24px;
             text-align: center;
             transition: all 0.3s ease;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .faculty-card::after {
+            content: '→';
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            font-size: 14px;
+            opacity: 0.25;
+            transition: opacity 0.2s ease;
         }
 
         .faculty-card:hover {
             background: var(--white);
             color: var(--black);
             transform: translateY(-4px);
+        }
+
+        .faculty-card:hover::after {
+            opacity: 0.6;
         }
 
         .faculty-name {
@@ -874,36 +892,36 @@
         <p class="subtitle fade-in" style="margin-top: 24px; color: var(--black);">Learn from academics and industry experts who bring real-world experience to the classroom.</p>
 
         <div class="faculty-grid stagger">
-            <div class="faculty-card fade-in">
+            <a href="faculty/natamon.html" class="faculty-card fade-in">
                 <p class="faculty-name">Dr. Natamon Phumpradab</p>
                 <p class="faculty-role">Chairperson</p>
                 <p class="faculty-credential">Ph.D. Business Administration (Marketing)<br>Sasin School of Management</p>
                 <p class="faculty-expertise">Marketing Strategy, Consumer Behavior, Digital Marketing</p>
-            </div>
-            <div class="faculty-card fade-in">
+            </a>
+            <a href="faculty/walee.html" class="faculty-card fade-in">
                 <p class="faculty-name">Ms. Walee Thongkhum</p>
                 <p class="faculty-role">Deputy Chair</p>
                 <p class="faculty-credential">M.S. Statistics<br>University of Wollongong, Australia</p>
                 <p class="faculty-expertise">Data Analytics, Research Methods, Business Statistics</p>
-            </div>
-            <div class="faculty-card fade-in">
+            </a>
+            <a href="faculty/kittipong.html" class="faculty-card fade-in">
                 <p class="faculty-name">Dr. Kittipong Laosethakul</p>
                 <p class="faculty-role">Instructor</p>
                 <p class="faculty-credential">Ph.D. Management<br>Auburn University, USA</p>
                 <p class="faculty-expertise">Information Systems, Technology Management, Digital Transformation</p>
-            </div>
-            <div class="faculty-card fade-in">
+            </a>
+            <a href="faculty/songsak.html" class="faculty-card fade-in">
                 <p class="faculty-name">Dr. Songsak Channarukul</p>
                 <p class="faculty-role">Instructor</p>
                 <p class="faculty-credential">Ph.D. Computer Science<br>UW-Milwaukee, USA</p>
                 <p class="faculty-expertise">Software Development, AI/ML, Computer Systems</p>
-            </div>
-            <div class="faculty-card fade-in">
+            </a>
+            <a href="faculty/sirapob.html" class="faculty-card fade-in">
                 <p class="faculty-name">Mr. Sirapob Thangseresuk</p>
                 <p class="faculty-role">Instructor</p>
                 <p class="faculty-credential">M.Arch. Design for Manufacture<br>UCL, United Kingdom</p>
                 <p class="faculty-expertise">Design Thinking, Product Design, Innovation</p>
-            </div>
+            </a>
         </div>
     </section>
 
