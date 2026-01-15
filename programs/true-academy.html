@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --black: #000000; --white: #ffffff; --red: #ff0000; }
+        :root { --black: #000000; --white: #ffffff; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--white); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
         .back-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(0, 0, 0, 0.95); padding: 16px 24px; }
@@ -17,7 +17,7 @@
         section { padding: 120px 24px; display: flex; flex-direction: column; align-items: center; }
         .section-dark { background: var(--black); color: var(--white); }
         .section-light { background: var(--white); color: var(--black); }
-        .section-red { background: var(--red); color: var(--white); }
+        /* Red removed - using dark theme instead */
         .hero { padding-top: 160px; text-align: center; }
         .program-label { font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.6; margin-bottom: 16px; }
         .program-name { font-size: clamp(32px, 8vw, 56px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
@@ -49,7 +49,7 @@
 </head>
 <body>
     <nav class="back-nav"><a href="../index.html#pathways" class="back-link"><span>&larr;</span> Back to DDI</a></nav>
-    <section class="hero section-red">
+    <section class="hero section-dark">
         <p class="program-label">Industry Partnership</p>
         <h1 class="program-name">True Academy</h1>
         <p class="program-partner">True Corporation</p>
