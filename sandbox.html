@@ -789,6 +789,26 @@
             z-index: 2;
         }
 
+        /* Constellation particles for dark sections */
+        #phases,
+        #sandbox-success {
+            position: relative;
+        }
+        #phases > *:not(.particles-canvas),
+        #sandbox-success > *:not(.particles-canvas) {
+            position: relative;
+            z-index: 2;
+        }
+        .particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
         /* ============================================
            BUILDING BLOCKS VISUAL
            ============================================ */
@@ -1275,7 +1295,7 @@
     </section>
 
     <!-- PROCESS - Diamond Flowchart -->
-    <section class="section-dark">
+    <section id="phases" class="section-dark">
         <h2 class="section-title fade-in" style="margin: 16px 0;">4 PHASES</h2>
 
         <div class="phases-diamond fade-in">
@@ -1336,7 +1356,7 @@
     </section>
 
     <!-- SUCCESS STORIES -->
-    <section class="section-dark">
+    <section id="sandbox-success" class="section-dark">
         <h2 class="section-title fade-in" style="margin: 16px 0;">SANDBOX SUCCESS</h2>
 
         <a href="success/zeri.html" class="success-card fade-in" style="text-decoration: none; color: inherit;">
@@ -1545,6 +1565,65 @@
                 showDots: true
             });
         }
+
+        // CONSTELLATION PARTICLES for dark sections
+        function initParticles(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (!section) return;
+
+            const canvas = document.createElement('canvas');
+            canvas.className = 'particles-canvas';
+            section.prepend(canvas);
+            const ctx = canvas.getContext('2d');
+
+            let particles = [];
+            const particleCount = 50;
+
+            function resize() {
+                canvas.width = section.offsetWidth;
+                canvas.height = section.offsetHeight;
+            }
+
+            function createParticles() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        size: Math.random() * 2 + 1,
+                        speedX: (Math.random() - 0.5) * 0.5,
+                        speedY: (Math.random() - 0.5) * 0.5,
+                        opacity: Math.random() * 0.5 + 0.1
+                    });
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.x < 0) p.x = canvas.width;
+                    if (p.x > canvas.width) p.x = 0;
+                    if (p.y < 0) p.y = canvas.height;
+                    if (p.y > canvas.height) p.y = 0;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+
+            resize();
+            createParticles();
+            animate();
+            window.addEventListener('resize', () => { resize(); createParticles(); });
+        }
+
+        // Initialize particles on both sections
+        initParticles('phases');
+        initParticles('sandbox-success');
     </script>
 </body>
 </html>
