@@ -50,6 +50,23 @@
             to { opacity: 1; }
         }
 
+        /* Scroll indicator line */
+        .scroll-line {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 60px;
+            background: currentColor;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
         /* NOISE TEXTURE */
         body::before {
             content: '';
@@ -1223,6 +1240,7 @@
     <section id="sandbox-hero" class="section-dark">
         <h1 class="page-title fade-in" style="margin: 24px 0;">THE SANDBOX</h1>
         <p class="subtitle fade-in">A playground for entrepreneurs. Experiment, fail fast, and build real businesses before you graduate.</p>
+        <div class="scroll-line"></div>
     </section>
 
     <!-- WHAT IS SANDBOX -->
