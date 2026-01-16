@@ -4271,7 +4271,7 @@
         }
 
         #mentors > *:not(.vanta-canvas),
-        #video-section > *:not(.vanta-canvas),
+        #video-section > *:not(.vanta-canvas):not(.particles-canvas),
         footer > *:not(.vanta-canvas) {
             position: relative;
             z-index: 2;
@@ -4779,6 +4779,17 @@
             }
         }
 
+        /* SUBTLE PARTICLES for white sections */
+        .subtle-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
     </style>
 
     <!-- Vanta.js Dependencies -->
@@ -4787,6 +4798,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.topology.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.fog.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.dots.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
 </head>
 <body>
     <!-- CURSOR GLOW (v8) -->
@@ -5036,6 +5049,7 @@
 
     <!-- SANDBOX - White (Main selling point - moved up) -->
     <section id="sandbox" class="section-light">
+        <div id="sandbox-particles" class="subtle-particles"></div>
         <h2 class="sandbox-title blur-in gradient-text">Sandbox</h2>
         <div class="line line-grow"></div>
 
@@ -5234,6 +5248,7 @@
 
     <!-- PARTNERS - White -->
     <section id="partners" class="section-light">
+        <div id="partners-particles" class="subtle-particles"></div>
         <h2 class="heading-lg slide-in-right">Partners</h2>
         <div class="line line-grow" style="margin-top: 32px;"></div>
 
@@ -5283,6 +5298,7 @@
 
     <!-- CTA -->
     <section id="cta" class="section-light">
+        <div id="cta-particles" class="subtle-particles"></div>
         <p class="cta-title scale-in" style="color: var(--black);">Build Your<br>Future Now</p>
         <div class="line line-grow" style="margin-bottom: 48px; background: var(--black);"></div>
         <div class="cta-buttons blur-in" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
@@ -5644,9 +5660,9 @@
                 backgroundColor: 0x000000
             });
 
-            // Video - WAVES (flowing wave)
-            VANTA.WAVES({
-                el: "#video-section",
+            // Footer - DOTS (white dot grid)
+            VANTA.DOTS({
+                el: "footer",
                 mouseControls: true,
                 touchControls: true,
                 gyroControls: false,
@@ -5654,28 +5670,12 @@
                 minWidth: 200.00,
                 scale: 1.00,
                 scaleMobile: 1.00,
-                color: 0x000000,
-                shininess: 30.00,
-                waveHeight: 15.00,
-                waveSpeed: 0.75,
-                zoom: 0.75
-            });
-
-            // Footer - FOG (mysterious clouds)
-            VANTA.FOG({
-                el: "footer",
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                highlightColor: 0x333333,
-                midtoneColor: 0x111111,
-                lowlightColor: 0x000000,
-                baseColor: 0x000000,
-                blurFactor: 0.6,
-                speed: 1.00,
-                zoom: 1.00
+                color: 0xffffff,
+                color2: 0xffffff,
+                backgroundColor: 0x0,
+                size: 2,
+                spacing: 20,
+                showLines: false
             });
         }
 
@@ -5695,6 +5695,61 @@
             function resize() {
                 canvas.width = pillars.offsetWidth;
                 canvas.height = pillars.offsetHeight;
+            }
+
+            function createParticles() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        size: Math.random() * 2 + 1,
+                        speedX: (Math.random() - 0.5) * 0.5,
+                        speedY: (Math.random() - 0.5) * 0.5,
+                        opacity: Math.random() * 0.5 + 0.1
+                    });
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.x < 0) p.x = canvas.width;
+                    if (p.x > canvas.width) p.x = 0;
+                    if (p.y < 0) p.y = canvas.height;
+                    if (p.y > canvas.height) p.y = 0;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+
+            resize();
+            createParticles();
+            animate();
+            window.addEventListener('resize', () => { resize(); createParticles(); });
+        })();
+
+        // VIDEO SECTION - Constellation particles
+        (function() {
+            const videoSection = document.getElementById('video-section');
+            if (!videoSection) return;
+
+            const canvas = document.createElement('canvas');
+            canvas.className = 'particles-canvas';
+            videoSection.prepend(canvas);
+            const ctx = canvas.getContext('2d');
+
+            let particles = [];
+            const particleCount = 50;
+
+            function resize() {
+                canvas.width = videoSection.offsetWidth;
+                canvas.height = videoSection.offsetHeight;
             }
 
             function createParticles() {
@@ -5764,6 +5819,37 @@
         document.querySelectorAll('.slide-in-left, .slide-in-right, .scale-in, .blur-in, .card-stack, .data-line-chart').forEach(el => {
             observer.observe(el);
         });
+
+        // SUBTLE PARTICLES for white sections
+        const subtleParticlesConfig = {
+            fpsLimit: 60,
+            particles: {
+                number: { value: 30, density: { enable: true, area: 800 } },
+                color: { value: "#000000" },
+                opacity: { value: 0.06 },
+                size: { value: 1.5, random: { enable: true, minimumValue: 1 } },
+                links: { enable: false },
+                move: {
+                    enable: true,
+                    speed: 0.3,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    outModes: { default: "out" }
+                }
+            },
+            interactivity: {
+                events: { onHover: { enable: false }, onClick: { enable: false } }
+            },
+            detectRetina: true
+        };
+
+        // Initialize particles on white sections
+        if (typeof tsParticles !== 'undefined') {
+            tsParticles.load("sandbox-particles", subtleParticlesConfig);
+            tsParticles.load("partners-particles", subtleParticlesConfig);
+            tsParticles.load("cta-particles", subtleParticlesConfig);
+        }
 
     </script>
 
